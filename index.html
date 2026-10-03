@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Visibility for B2B SaaS | Orvin Labs</title>
+<meta name="description" content="Orvin Labs checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend your B2B SaaS product, and what's stopping them.">
+<link rel="canonical" href="https://orvinlabs.com">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0B0A09" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Orvin Labs">
+<meta property="og:url" content="https://orvinlabs.com">
+<meta property="og:title" content="AI Visibility for B2B SaaS | Orvin Labs">
+<meta property="og:description" content="Orvin Labs checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend your B2B SaaS product, and what's stopping them.">
+<meta property="og:image" content="https://orvinlabs.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Orvin Labs â€” AI visibility for B2B SaaS">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Visibility for B2B SaaS | Orvin Labs">
+<meta name="twitter:description" content="Orvin Labs checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend your B2B SaaS product, and what's stopping them.">
+<meta name="twitter:image" content="https://orvinlabs.com/og.png">
+<meta name="twitter:image:alt" content="Orvin Labs â€” AI visibility for B2B SaaS">
+
+<style>
+/* ============================================================
+   TOKENS â€” dark is the default theme, light is the alternate.
+   One accent plus neutrals. Every pair meets WCAG AA.
+   ============================================================ */
+:root{
+  --accent:#F65E1D;         /* borders, rules, graphic strokes */
+  --accent-ink:#F65E1D;     /* accent used as text â€” 9.3:1 on --bg */
+  --accent-strong:#F65E1D;  /* button fill â€” white text 5.4:1 */
+  --accent-hover:#FF7437;
+  --accent-on:#0B0A09;
+  --glow:rgba(246,94,29,.15);
+  --glow-soft:rgba(246,94,29,.07);
+
+  --bg:#0B0A09;
+  --surface:#141210;
+  --surface-2:#1B1816;
+  --line:#262220;
+  --line-2:#332E2A;
+  --ink:#FAF8F6;            /* 18:1 */
+  --ink-2:#B5ADA6;          /* 9.1:1 */
+  --ink-3:#8A827B;          /* 5.1:1 */
+
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --shadow:0 24px 70px -20px rgba(0,0,0,.75);
+
+  --maxw:1200px;
+  --prose:40rem;
+  --s1:8px;  --s2:16px; --s3:24px; --s4:32px;
+  --s5:40px; --s6:56px; --s7:72px; --s8:96px;
+  --radius:10px;
+  --radius-sm:6px;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --accent:#F65E1D;
+    --accent-ink:#C2410C;   /* 6.8:1 on white */
+    --accent-strong:#F65E1D;/* white text 6.1:1 */
+    --accent-hover:#D94E13;
+    --glow:rgba(246,94,29,.10);
+    --glow-soft:rgba(246,94,29,.05);
+    --bg:#FFFFFF;
+    --surface:#FAF9F8;
+    --surface-2:#F3F0EE;
+    --line:#E8E3DF;
+    --line-2:#D6CFC9;
+    --ink:#0F0D0B;
+    --ink-2:#57514B;        /* 7.9:1 */
+    --ink-3:#78706A;        /* 4.7:1 */
+    --shadow:0 24px 60px -24px rgba(10,12,16,.18);
+  }
+}
+:root[data-theme="light"]{
+  --accent:#F65E1D; --accent-ink:#C2410C; --accent-strong:#F65E1D; --accent-hover:#D94E13;
+  --glow:rgba(246,94,29,.10); --glow-soft:rgba(246,94,29,.05);
+  --bg:#FFFFFF; --surface:#FAF9F8; --surface-2:#F3F0EE;
+  --line:#E8E3DF; --line-2:#D6CFC9;
+  --ink:#0F0D0B; --ink-2:#57514B; --ink-3:#78706A;
+  --shadow:0 24px 60px -24px rgba(10,12,16,.18);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  padding-left:env(safe-area-inset-left);
+  padding-right:env(safe-area-inset-right);
+}
+@media (min-width:768px){ body{font-size:18px} }
+
+h1,h2,h3{margin:0;color:var(--ink);font-weight:650;letter-spacing:-0.018em;line-height:1.15}
+h1{font-size:clamp(2rem,3.9vw,3rem);line-height:1.08;letter-spacing:-0.028em;font-weight:700}
+h2{font-size:clamp(1.75rem,3.2vw,2.5rem);letter-spacing:-0.026em}
+h3{font-size:1.0625rem;letter-spacing:-0.008em;font-weight:650}
+p{margin:0 0 var(--s2)}
+p:last-child{margin-bottom:0}
+a{color:inherit;text-decoration:none}
+strong,b{font-weight:650;color:var(--ink)}
+::selection{background:var(--accent-strong);color:var(--accent-on)}
+
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;width:100%}
+@media (min-width:768px){ .wrap{padding:0 var(--s5)} }
+.prose{max-width:var(--prose)}
+.mono{font-family:var(--mono)}
+
+.skip{
+  position:absolute;left:var(--s2);top:-100px;z-index:100;
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-2);
+  padding:12px 16px;border-radius:var(--radius-sm);
+}
+.skip:focus{top:var(--s2)}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter:saturate(1.6) blur(14px);
+  -webkit-backdrop-filter:saturate(1.6) blur(14px);
+  border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top);
+}
+@supports not (background:color-mix(in srgb,red,blue)){ .header{background:var(--bg)} }
+.header-inner{display:flex;align-items:center;gap:var(--s3);min-height:64px}
+.brand-lockup{height:23px;width:auto;display:block;flex:none}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-0.015em;font-size:.9375rem;min-height:44px}
+.brand-mark{display:block;flex:none;color:var(--accent-ink)}
+.nav{margin-left:auto;display:none;align-items:center;gap:4px}
+@media (min-width:880px){ .nav{display:flex} }
+.nav a{
+  color:var(--ink-2);font-size:.875rem;letter-spacing:-0.005em;
+  display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:var(--radius-sm);
+  transition:color .15s ease-out, background-color .15s ease-out;
+}
+.nav a:hover{color:var(--accent-ink);background:var(--surface-2)}
+.header .btn{margin-left:auto;padding:10px 18px;min-height:44px;font-size:.875rem}
+@media (min-width:880px){ .header .btn{margin-left:var(--s2)} }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:44px;padding:12px 22px;
+  background:var(--accent-strong);color:var(--accent-on);
+  border:1px solid transparent;border-radius:var(--radius-sm);
+  font-size:.9375rem;font-weight:600;letter-spacing:-0.008em;
+  transition:background-color .15s ease-out, transform .15s ease-out;
+}
+.btn:hover{background:var(--accent-hover)}
+.btn:active{transform:translateY(1px)}
+.btn svg{flex:none;opacity:.8}
+.btn-lg{min-height:54px;padding:16px 30px;font-size:1.0625rem}
+
+/* in-prose links to the reference pages */
+main p a:not(.btn), main .check li a{
+  color:var(--accent-ink);text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1px;
+}
+main p a:not(.btn):hover, main .check li a:hover{text-decoration-thickness:2px}
+
+/* ============================================================
+   SECTION SHELL + LEFT RAIL
+   ============================================================ */
+section{padding:clamp(5rem,10vw,8rem) 0;position:relative}
+section + section{border-top:1px solid var(--line)}
+
+.rail{display:grid;gap:var(--s5)}
+@media (min-width:1000px){
+  .rail{grid-template-columns:minmax(0,160px) minmax(0,1fr);gap:var(--s8);align-items:start}
+}
+.rail-label{
+  font-family:var(--mono);font-size:.6875rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin:0;
+  display:flex;align-items:center;gap:10px;
+}
+.rail-label::before{
+  content:"";width:18px;height:1px;background:var(--accent);flex:none;
+}
+/* Only the rail's own label sticks. Labels used inside cards must not. */
+@media (min-width:1000px){
+  .rail > .rail-label{position:sticky;top:112px;padding-top:10px}
+}
+.rail-body > h2 + p{margin-top:var(--s3);color:var(--ink-2);max-width:var(--prose)}
+.sect-intro{color:var(--ink-2);max-width:var(--prose);margin-top:var(--s3)}
+
+.hr-fade{
+  height:1px;border:0;margin:0;
+  background:linear-gradient(90deg,var(--line-2),transparent);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  padding-top:clamp(3.5rem,8vw,6.5rem);
+  padding-bottom:clamp(4rem,9vw,7rem);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  top:-280px;left:50%;transform:translateX(-50%);
+  width:1300px;height:900px;
+  background:radial-gradient(45% 42% at 50% 42%, var(--glow), transparent 68%);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle at 1px 1px, var(--line-2) 1px, transparent 0);
+  background-size:36px 36px;
+  -webkit-mask-image:radial-gradient(60% 55% at 50% 30%, #000, transparent 75%);
+  mask-image:radial-gradient(60% 55% at 50% 30%, #000, transparent 75%);
+}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;gap:var(--s7);align-items:center}
+@media (min-width:1040px){
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:var(--s7)}
+}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--mono);font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-2);
+  border:1px solid var(--line-2);background:var(--surface);
+  padding:7px 14px;border-radius:999px;margin:0 0 var(--s4);
+}
+.kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
+.hero h1{max-width:21ch}
+.hero .sub{margin-top:var(--s4);font-size:1.0625rem;color:var(--ink-2);max-width:40rem}
+@media (min-width:768px){ .hero .sub{font-size:1.25rem;line-height:1.55} }
+.hero-actions{margin-top:var(--s5);display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center}
+.hero .note{margin-top:var(--s3);color:var(--ink-3);font-size:.9375rem;max-width:34rem}
+
+/* orbit panel */
+.orbit-panel{
+  position:relative;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(180deg,var(--surface),var(--bg));
+  padding:var(--s5);
+  display:none;
+}
+@media (min-width:1040px){ .orbit-panel{display:block} }
+.orbit{display:block;width:100%;height:auto;color:var(--accent)}
+/* ============================================================
+   PROBLEM â€” three columns
+   ============================================================ */
+.cols{display:grid;gap:var(--s5)}
+@media (min-width:860px){ .cols-3{grid-template-columns:repeat(3,1fr);gap:var(--s5)} }
+@media (min-width:680px){ .cols-2{grid-template-columns:repeat(2,1fr);gap:var(--s5)} }
+.col-top{padding-top:var(--s3);border-top:1px solid var(--line);position:relative}
+.col-top::before{content:"";position:absolute;top:-1px;left:0;width:32px;height:1px;background:var(--accent)}
+.num{
+  display:block;font-family:var(--mono);font-size:.6875rem;font-weight:600;
+  letter-spacing:.1em;color:var(--accent-ink);margin-bottom:var(--s2);
+}
+.col-top h3{margin-bottom:10px}
+.col-top p{color:var(--ink-2);font-size:1rem;max-width:34rem;margin:0}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--surface);padding:var(--s4);
+  transition:border-color .2s ease-out, background-color .2s ease-out;
+}
+.card:hover{border-color:var(--line-2);background:var(--surface-2)}
+.card h3{margin-bottom:10px}
+.card p{color:var(--ink-2);font-size:1rem;margin:0}
+.glyph{
+  color:var(--accent-ink);display:block;margin-bottom:var(--s3);
+  width:28px;height:28px;
+}
+
+/* ============================================================
+   TRY THIS â€” the conversion card
+   ============================================================ */
+.check-section{overflow:hidden}
+.check-section::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  left:50%;top:50%;transform:translate(-50%,-50%);
+  width:1000px;height:700px;
+  background:radial-gradient(50% 50% at 50% 50%, var(--glow), transparent 70%);
+}
+.check-section .wrap{position:relative;z-index:1}
+.try{
+  position:relative;
+  border:1px solid var(--accent);border-radius:14px;
+  background:var(--surface);
+  padding:clamp(1.75rem,5vw,3.25rem);
+  box-shadow:var(--shadow);
+  max-width:48rem;margin:0 auto;
+}
+.try::before{
+  content:"";position:absolute;left:clamp(1.75rem,5vw,3.25rem);right:clamp(1.75rem,5vw,3.25rem);top:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent-ink),transparent);
+}
+.try .rail-label{margin-bottom:var(--s3)}
+.try h2{font-size:clamp(1.6rem,3.4vw,2.25rem)}
+.try ol{margin:var(--s5) 0 0;padding:0;list-style:none;counter-reset:step}
+.try ol li{
+  counter-increment:step;position:relative;padding-left:46px;margin-bottom:var(--s4);
+  color:var(--ink);font-size:1.0625rem;
+}
+.try ol li:last-child{margin-bottom:0}
+.try ol li::before{
+  content:"0" counter(step);position:absolute;left:0;top:2px;
+  font-family:var(--mono);font-size:.75rem;font-weight:600;color:var(--accent-ink);
+  width:30px;height:24px;display:flex;align-items:center;
+}
+.try ol li::after{
+  content:"";position:absolute;left:11px;top:30px;bottom:-26px;width:1px;background:var(--line-2);
+}
+.try ol li:last-child::after{display:none}
+.query{
+  display:block;margin-top:10px;
+  font-family:var(--mono);font-size:.875rem;line-height:1.5;color:var(--accent-ink);
+  background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--radius-sm);
+  padding:12px 14px;word-break:break-word;
+}
+.try .kicker-line{
+  margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line);
+  color:var(--ink-2);font-size:1.0625rem;
+}
+
+/* ============================================================
+   AUDIT
+   ============================================================ */
+.audit-grid{display:grid;gap:var(--s6)}
+@media (min-width:900px){
+  .audit-grid{grid-template-columns:minmax(0,290px) minmax(0,1fr);gap:var(--s8);align-items:start}
+}
+.price-block{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--surface);padding:var(--s4);
+}
+@media (min-width:900px){ .price-block{position:sticky;top:112px} }
+.price-big{
+  font-size:clamp(2.75rem,5vw,3.5rem);font-weight:700;letter-spacing:-0.04em;
+  line-height:1;color:var(--ink);display:block;
+}
+.price-meta{
+  margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:.8125rem;color:var(--ink-2);letter-spacing:-0.01em;
+}
+.price-block .btn{margin-top:var(--s4);width:100%}
+.deliver-head{
+  font-family:var(--mono);font-size:.6875rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 var(--s3);
+}
+.check{list-style:none;margin:0;padding:0}
+.check li{
+  position:relative;padding:14px 0 14px 34px;
+  border-top:1px solid var(--line);color:var(--ink-2);font-size:1rem;
+}
+.check li:last-child{border-bottom:1px solid var(--line)}
+.check li svg{position:absolute;left:0;top:19px;color:var(--accent-ink)}
+.audit-foot{margin-top:var(--s5);color:var(--ink-2);max-width:var(--prose)}
+
+/* ============================================================
+   STEPS
+   ============================================================ */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:var(--s5);counter-reset:n}
+@media (min-width:900px){ .steps{grid-template-columns:repeat(4,1fr);gap:var(--s4)} }
+.steps li{
+  counter-increment:n;position:relative;
+  padding-top:var(--s4);border-top:1px solid var(--line);color:var(--ink-2);font-size:1rem;
+}
+.steps li::before{content:"";position:absolute;top:-1px;left:0;width:28px;height:1px;background:var(--accent)}
+.steps li::after{
+  content:"0" counter(n);position:absolute;top:var(--s2);left:0;
+  font-family:var(--mono);font-size:.6875rem;font-weight:600;letter-spacing:.1em;color:var(--accent-ink);
+}
+.steps li b{display:block;margin-bottom:6px;font-size:1.0625rem}
+
+/* ============================================================
+   RETAINER
+   ============================================================ */
+.retainer-head{display:grid;gap:var(--s4);margin-bottom:var(--s7)}
+@media (min-width:900px){
+  .retainer-head{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s8);align-items:end}
+}
+.from-price{
+  font-family:var(--mono);font-size:1rem;color:var(--accent-ink);
+  border:1px solid var(--line-2);background:var(--surface);
+  border-radius:var(--radius-sm);padding:12px 16px;display:inline-block;
+}
+.retain-grid{display:grid;gap:var(--s2)}
+@media (min-width:760px){ .retain-grid{grid-template-columns:repeat(2,1fr);gap:var(--s2)} }
+@media (min-width:1100px){ .retain-grid{grid-template-columns:repeat(3,1fr)} }
+.retain-grid .card{padding:var(--s3)}
+.retain-note{
+  margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line);
+  font-size:1.0625rem;color:var(--ink-2);
+}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.price-list{margin:0;padding:0}
+.price-row{
+  display:grid;gap:6px;padding:var(--s5) 0;border-top:1px solid var(--line);
+  align-items:baseline;
+}
+.price-row:last-of-type{border-bottom:1px solid var(--line)}
+@media (min-width:760px){
+  .price-row{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:var(--s5)}
+}
+.price-row dt{font-size:1.375rem;font-weight:650;letter-spacing:-0.022em}
+.price-row dd{margin:0;color:var(--ink-2)}
+.price-row dd .amt{
+  font-family:var(--mono);color:var(--ink);font-weight:600;font-size:1.0625rem;
+  letter-spacing:-0.02em;
+}
+
+/* ============================================================
+   HONEST / WHO / ABOUT
+   ============================================================ */
+.lead-para{font-size:1.1875rem;color:var(--ink);line-height:1.55;margin-bottom:var(--s3)}
+.body-para{color:var(--ink-2)}
+.quote-rule{
+  border-left:1px solid var(--accent);padding-left:var(--s3);
+  margin:0;color:var(--ink-2);
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{margin:0;padding:0;max-width:var(--prose)}
+.faq dt{
+  font-size:1.125rem;font-weight:650;letter-spacing:-0.018em;
+  padding-top:var(--s5);border-top:1px solid var(--line);
+}
+.faq dt:first-of-type{padding-top:0;border-top:0}
+.faq dd{margin:12px 0 var(--s5);color:var(--ink-2)}
+.faq dd:last-of-type{margin-bottom:0}
+
+/* ============================================================
+   CLOSE
+   ============================================================ */
+.close{overflow:hidden;text-align:center;border-top:1px solid var(--line)}
+.close::before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  left:50%;bottom:-340px;transform:translateX(-50%);
+  width:1200px;height:800px;
+  background:radial-gradient(45% 45% at 50% 50%, var(--glow), transparent 70%);
+}
+.close::after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.45;
+  background-image:radial-gradient(circle at 1px 1px, var(--line-2) 1px, transparent 0);
+  background-size:36px 36px;
+  -webkit-mask-image:radial-gradient(55% 60% at 50% 70%, #000, transparent 75%);
+  mask-image:radial-gradient(55% 60% at 50% 70%, #000, transparent 75%);
+}
+.close .wrap{position:relative;z-index:1}
+.close h2{font-size:clamp(2.25rem,5vw,3.25rem);letter-spacing:-0.034em}
+.close .prose{margin:var(--s4) auto 0;color:var(--ink-2)}
+.close .btn{margin-top:var(--s6)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{border-top:1px solid var(--line);padding:var(--s7) 0 calc(var(--s6) + env(safe-area-inset-bottom));background:var(--bg)}
+.footer-grid{display:grid;gap:var(--s5)}
+@media (min-width:760px){ .footer-grid{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) minmax(0,1fr);gap:var(--s7)} }
+.footer .brand{margin-bottom:var(--s3)}
+.footer p{color:var(--ink-3);font-size:.9375rem}
+.footer a.mail{
+  color:var(--ink-2);display:inline-flex;align-items:center;min-height:44px;
+  border-bottom:1px solid var(--line-2);
+}
+.footer a.mail:hover{color:var(--accent-ink);border-color:var(--accent)}
+.foot-list{list-style:none;margin:0;padding:0}
+.foot-list a{color:var(--ink-2);font-size:.9375rem;display:inline-flex;align-items:center;min-height:44px}
+.foot-list a:hover{color:var(--accent-ink)}
+
+/* ============================================================
+   MOTION
+   ============================================================ */
+.js .reveal{opacity:0;transform:translateY(14px)}
+.js .reveal.in{opacity:1;transform:none;transition:opacity .3s ease-out,transform .3s ease-out}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+[id]{scroll-margin-top:96px}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://orvinlabs.com/#organization",
+      "name": "Orvin Labs",
+      "url": "https://orvinlabs.com",
+      "description": "Orvin Labs is an AI visibility consultancy for B2B SaaS companies. It checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend a product, and fixes what stops them.",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://orvinlabs.com/#logo",
+        "url": "https://orvinlabs.com/logo.png",
+        "contentUrl": "https://orvinlabs.com/logo.png",
+        "width": 512,
+        "height": 512,
+        "caption": "Orvin Labs"
+      },
+      "image": { "@id": "https://orvinlabs.com/#logo" },
+      "email": "harsh@orvinlabs.com",
+      "slogan": "AI visibility for B2B SaaS.",
+      "founder": { "@id": "https://orvinlabs.com/#person" },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "harsh@orvinlabs.com",
+          "availableLanguage": ["English"],
+          "areaServed": "Worldwide"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/orvin-labs/"
+      ],
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "knowsAbout": [
+        "Generative Engine Optimization",
+        "Answer Engine Optimization",
+        "AI Visibility",
+        "AI Search Optimization",
+        "LLM Optimization",
+        "B2B SaaS Marketing"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orvinlabs.com/#person",
+      "name": "Harsh Vardhan Goel",
+      "givenName": "Harsh Vardhan",
+      "familyName": "Goel",
+      "jobTitle": "Founder",
+      "email": "harsh@orvinlabs.com",
+      "worksFor": { "@id": "https://orvinlabs.com/#organization" },
+      "workLocation": {
+        "@type": "Place",
+        "name": "IIT Delhi"
+      },
+      "knowsAbout": [
+        "Generative Engine Optimization",
+        "Answer Engine Optimization",
+        "AI Visibility",
+        "AI Search Optimization"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/harsh-vardhan-goel-856446290"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://orvinlabs.com/#service",
+      "name": "Orvin Labs",
+      "url": "https://orvinlabs.com",
+      "serviceType": "AI Visibility Consulting",
+      "description": "AI visibility consulting for B2B SaaS companies: auditing and improving whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend a product.",
+      "parentOrganization": { "@id": "https://orvinlabs.com/#organization" },
+      "provider": { "@id": "https://orvinlabs.com/#organization" },
+      "email": "harsh@orvinlabs.com",
+      "image": { "@id": "https://orvinlabs.com/#logo" },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "B2B SaaS and software companies"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "@id": "https://orvinlabs.com/#offers",
+        "name": "AI visibility services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "AI Visibility Audit",
+            "description": "One time. Five to seven days. Twenty to thirty real buyer questions run across ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews, plus a crawler access report, a structured data report, a fix list ordered by impact, and a ten minute recorded walkthrough.",
+            "price": "750",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "750",
+              "priceCurrency": "USD",
+              "valueAddedTaxIncluded": false
+            },
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Visibility Audit",
+              "serviceType": "AI visibility audit",
+              "provider": { "@id": "https://orvinlabs.com/#organization" }
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Implementation support",
+            "description": "One time. Two to three weeks. Orvin Labs guides, your developers deploy.",
+            "price": "2500",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "price": "2500",
+              "priceCurrency": "USD",
+              "valueAddedTaxIncluded": false
+            },
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Implementation support",
+              "serviceType": "AI visibility implementation support",
+              "provider": { "@id": "https://orvinlabs.com/#organization" }
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Ongoing AI visibility",
+            "description": "From $3,000 per month. Monthly measurement, citation building, digital PR, entity and trust building, correcting the record, technical iteration, and a monthly report and call. Month to month.",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "3000",
+              "priceCurrency": "USD",
+              "minPrice": "3000",
+              "unitCode": "MON",
+              "billingDuration": 1,
+              "billingIncrement": 1,
+              "valueAddedTaxIncluded": false
+            },
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ongoing AI visibility",
+              "serviceType": "AI visibility retainer",
+              "provider": { "@id": "https://orvinlabs.com/#organization" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://orvinlabs.com/#website",
+      "name": "Orvin Labs",
+      "url": "https://orvinlabs.com",
+      "description": "AI visibility for B2B SaaS. Orvin Labs checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend your product, then shows you what's stopping them.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://orvinlabs.com/#organization" },
+      "hasPart": [
+        {
+          "@type": "TechArticle",
+          "@id": "https://orvinlabs.com/ai-crawlers/#article",
+          "url": "https://orvinlabs.com/ai-crawlers/",
+          "name": "AI crawler reference: every bot that matters, and what each one actually does",
+          "description": "The four kinds of AI user agent and the current robots.txt token for each operator, verified against operator documentation."
+        },
+        {
+          "@type": "TechArticle",
+          "@id": "https://orvinlabs.com/ai-traffic-in-ga4/#article",
+          "url": "https://orvinlabs.com/ai-traffic-in-ga4/",
+          "name": "Why AI traffic lands in your Direct bucket, and how to fix it in GA4",
+          "description": "Why Google Analytics 4 files AI assistant sessions under Referral and Direct, and the retroactive custom channel group that separates them."
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://orvinlabs.com/#webpage",
+      "url": "https://orvinlabs.com",
+      "name": "AI Visibility for B2B SaaS | Orvin Labs",
+      "description": "Orvin Labs checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend your B2B SaaS product, and what's stopping them.",
+      "isPartOf": { "@id": "https://orvinlabs.com/#website" },
+      "about": { "@id": "https://orvinlabs.com/#organization" },
+      "inLanguage": "en",
+      "dateModified": "2026-10-03",
+      "breadcrumb": { "@id": "https://orvinlabs.com/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://orvinlabs.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Orvin Labs",
+          "item": "https://orvinlabs.com"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://orvinlabs.com/#faq",
+      "isPartOf": { "@id": "https://orvinlabs.com/#webpage" },
+      "about": { "@id": "https://orvinlabs.com/#organization" },
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Isn't this just SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partly, and we'll say so. For Google's AI Overviews, Google states it's still SEO, and they're right. ChatGPT accounts for the large majority of AI referral traffic and doesn't run on Google's index, so that part is a separate problem with separate inputs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Couldn't we do this in house?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some teams do. It needs someone who can run the question set across six engines consistently, read the results against competitor movement, work the citation sources your category is built from, and keep the technical layer current as the site changes. That's a role, not a task. If you have someone free to own it, you don't need us."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long until we see movement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Technical fixes take effect in days to weeks. Citation work takes one to three months. We'll tell you at audit stage what's realistic for your situation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you need access to our site?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. We work from public data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the audit says we're already doing well?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Then we'll tell you, and you'll know. It happens, and it's worth the $750 to find out."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#main" aria-label="Orvin Labs, home">
+      <svg class="brand-lockup" viewBox="0 0 1341 285" role="img" aria-label="Orvin Labs" focusable="false"><path d="M132.023 0C204.938 0.000222479 264.046 63.7864 264.046 142.471C264.046 221.155 204.938 284.941 132.023 284.941C59.1091 284.941 0 221.155 0 142.471C0.000114628 63.7863 59.1092 0 132.023 0ZM170.455 37.3906C154.793 37.391 141.293 46.6383 135.11 59.9697C134.63 59.9602 134.148 59.9541 133.666 59.9541C91.1767 59.9545 56.7315 96.9502 56.7314 142.587C56.7314 157.175 60.2519 170.88 66.4287 182.776C60.3934 189.636 56.7315 198.635 56.7314 208.489C56.7316 229.996 74.1671 247.43 95.6738 247.431C111.213 247.431 124.624 238.328 130.871 225.165C131.798 225.201 132.731 225.22 133.666 225.22C176.156 225.22 210.601 188.224 210.601 142.587C210.601 127.553 206.861 113.457 200.328 101.312C205.988 94.55 209.397 85.8404 209.397 76.333C209.397 54.826 191.962 37.3906 170.455 37.3906Z" fill="var(--accent)"/><g transform="translate(355,69.5)" fill="currentColor"><path d="M0 72.3506C0 62.3976 1.85023 53.0188 5.5507 44.2142C9.37878 35.4097 14.5467 27.7535 21.0544 21.2458C27.6897 14.7381 35.4097 9.57018 44.2142 5.74211C53.0188 1.91404 62.3976 0 72.3506 0C82.3035 0 91.6823 1.91404 100.487 5.74211C109.291 9.57018 116.948 14.7381 123.455 21.2458C130.091 27.7535 135.322 35.4097 139.15 44.2142C142.978 53.0188 144.893 62.3976 144.893 72.3506C144.893 82.3035 142.978 91.6823 139.15 100.487C135.322 109.291 130.091 117.011 123.455 123.647C116.948 130.154 109.291 135.322 100.487 139.15C91.6823 142.978 82.3035 144.893 72.3506 144.893C62.3976 144.893 53.0188 142.978 44.2142 139.15C35.4097 135.322 27.6897 130.154 21.0544 123.647C14.5467 117.011 9.37878 109.291 5.5507 100.487C1.85023 91.6823 0 82.3035 0 72.3506ZM72.3506 127.092C79.2411 127.092 85.7488 125.688 91.8737 122.881C97.9986 119.946 103.294 115.991 107.76 111.014C112.354 106.038 115.927 100.232 118.479 93.5964C121.158 86.961 122.498 79.8791 122.498 72.3506C122.498 64.822 121.158 57.7401 118.479 51.1048C115.927 44.4694 112.354 38.7273 107.76 33.8784C103.294 28.9019 97.9986 25.0101 91.8737 22.2028C85.7488 19.268 79.2411 17.8005 72.3506 17.8005C65.46 17.8005 58.9523 19.268 52.8274 22.2028C46.8301 25.0101 41.5346 28.9019 36.9409 33.8784C32.3472 38.7273 28.7105 44.4694 26.0309 51.1048C23.4788 57.7401 22.2028 64.822 22.2028 72.3506C22.2028 79.8791 23.4788 86.961 26.0309 93.5964C28.7105 100.232 32.3472 106.038 36.9409 111.014C41.5346 115.991 46.8301 119.946 52.8274 122.881C58.9523 125.688 65.46 127.092 72.3506 127.092Z"/><path d="M161.782 40.9604H181.114V48.9993C184.559 45.6817 188.324 43.1296 192.407 41.3432C196.618 39.5567 201.02 38.6635 205.614 38.6635C211.739 38.6635 217.608 40.0033 223.223 42.683C228.965 45.235 233.814 49.1269 237.77 54.3586C234.962 56.5279 232.155 58.8885 229.348 61.4406C226.541 63.9926 224.308 65.9704 222.649 67.3741C220.224 64.0564 217.417 61.5044 214.227 59.7179C211.037 57.9315 207.719 56.9107 204.274 56.6555C199.425 56.4003 194.959 57.4211 190.876 59.7179C186.92 61.8872 183.666 65.0772 181.114 69.2881V142.596H161.782V40.9604Z"/><path d="M318.57 41.3432L340.199 40.9604L298.09 142.213H281.247L239.138 40.9604L260.192 39.8119L289.668 110.823L318.57 41.3432Z"/><path d="M373.119 40.9604V142.596H353.596V40.9604H373.119ZM352.064 11.2928C352.064 8.23036 353.149 5.61451 355.318 3.44527C357.488 1.27602 360.167 0.191401 363.357 0.191401C366.42 0.191401 369.036 1.27602 371.205 3.44527C373.502 5.61451 374.65 8.23036 374.65 11.2928C374.65 14.4829 373.502 17.1625 371.205 19.3318C369.036 21.501 366.42 22.5856 363.357 22.5856C360.167 22.5856 357.488 21.501 355.318 19.3318C353.149 17.1625 352.064 14.4829 352.064 11.2928Z"/><path d="M395.616 142.596V40.9604H414.948V50.722C418.904 47.0215 423.306 44.0866 428.155 41.9174C433.004 39.7481 438.108 38.6635 443.467 38.6635C449.209 38.6635 454.76 39.6205 460.119 41.5346C465.606 43.321 470.455 46.1283 474.666 49.9563C478.877 53.6568 482.258 58.3143 484.81 63.9288C487.49 69.4157 488.83 75.8596 488.83 83.2606L489.021 142.213H470.072L469.881 87.4714C469.881 82.3673 469.115 77.8375 467.584 73.8818C466.053 69.9261 464.011 66.5446 461.459 63.7374C458.907 60.9301 455.972 58.7609 452.655 57.2297C449.464 55.6984 446.147 54.869 442.702 54.7414C436.959 54.4862 431.6 55.5708 426.624 57.9953C421.775 60.4197 417.883 64.0564 414.948 68.9053V142.596H395.616Z"/><path d="M574.679 125.178H650.092V142.596H553.05V2.29685H574.679V125.178Z"/><path d="M710.572 38.6635C717.463 38.6635 723.971 39.9396 730.095 42.4916C736.22 44.916 741.644 48.3613 746.365 52.8274V40.9604H765.697V142.213H746.365V130.729C741.644 135.195 736.22 138.704 730.095 141.256C723.971 143.68 717.463 144.893 710.572 144.893C703.171 144.893 696.217 143.489 689.709 140.682C683.329 137.874 677.715 134.11 672.866 129.389C668.145 124.54 664.38 118.925 661.573 112.545C658.766 106.038 657.362 99.1471 657.362 91.8737C657.362 84.4728 658.766 77.5823 661.573 71.2021C664.38 64.6944 668.145 59.0799 672.866 54.3586C677.715 49.5097 683.329 45.6817 689.709 42.8744C696.217 40.0672 703.171 38.6635 710.572 38.6635ZM676.694 91.8737C676.694 96.9778 677.587 101.763 679.374 106.229C681.288 110.695 683.776 114.587 686.838 117.905C690.028 121.222 693.729 123.902 697.94 125.944C702.278 127.858 706.808 128.815 711.529 128.815C716.378 128.815 720.908 127.858 725.119 125.944C729.33 123.902 733.03 121.222 736.22 117.905C739.41 114.587 741.899 110.695 743.685 106.229C745.472 101.763 746.365 96.9778 746.365 91.8737C746.365 86.7696 745.472 81.9845 743.685 77.5185C741.899 72.9248 739.41 68.9691 736.22 65.6514C733.03 62.3338 729.33 59.7179 725.119 57.8039C720.908 55.7622 716.378 54.7414 711.529 54.7414C706.808 54.7414 702.278 55.7622 697.94 57.8039C693.729 59.7179 690.028 62.3338 686.838 65.6514C683.776 68.9691 681.288 72.9248 679.374 77.5185C677.587 81.9845 676.694 86.7696 676.694 91.8737Z"/><path d="M786.835 2.48825H806.166V53.0188C811.015 48.5527 816.502 45.0436 822.627 42.4916C828.752 39.9396 835.324 38.6635 842.342 38.6635C849.615 38.6635 856.506 40.0672 863.013 42.8744C869.521 45.6817 875.136 49.5097 879.857 54.3586C884.706 59.0799 888.534 64.6944 891.341 71.2021C894.148 77.5823 895.552 84.4728 895.552 91.8737C895.552 99.1471 894.148 106.038 891.341 112.545C888.534 118.925 884.706 124.54 879.857 129.389C875.136 134.11 869.521 137.874 863.013 140.682C856.506 143.489 849.615 144.893 842.342 144.893C835.324 144.893 828.752 143.616 822.627 141.064C816.502 138.512 811.015 135.003 806.166 130.537V142.596H786.835V2.48825ZM806.549 91.8737C806.549 96.9778 807.442 101.763 809.229 106.229C811.015 110.695 813.504 114.587 816.694 117.905C819.884 121.222 823.584 123.902 827.795 125.944C832.006 127.858 836.536 128.815 841.385 128.815C846.234 128.815 850.763 127.858 854.974 125.944C859.185 123.902 862.822 121.222 865.884 117.905C869.074 114.587 871.563 110.695 873.349 106.229C875.263 101.763 876.22 96.9778 876.22 91.8737C876.22 86.7696 875.263 81.9845 873.349 77.5185C871.563 72.9248 869.074 68.9691 865.884 65.6514C862.822 62.3338 859.185 59.7179 854.974 57.8039C850.763 55.7622 846.234 54.7414 841.385 54.7414C836.536 54.7414 832.006 55.7622 827.795 57.8039C823.584 59.7179 819.884 62.3338 816.694 65.6514C813.504 68.9691 811.015 72.9248 809.229 77.5185C807.442 81.9845 806.549 86.7696 806.549 91.8737Z"/><path d="M917.638 119.053C918.914 120.201 920.318 121.35 921.849 122.498C923.38 123.519 925.23 124.412 927.4 125.178C929.696 125.944 932.312 126.582 935.247 127.092C938.31 127.602 941.883 127.858 945.966 127.858C949.283 127.858 952.282 127.475 954.962 126.709C957.769 125.816 960.13 124.731 962.044 123.455C964.085 122.052 965.617 120.584 966.637 119.053C967.786 117.394 968.36 115.735 968.36 114.077C968.36 113.183 968.232 112.226 967.977 111.205C967.722 110.057 966.829 108.845 965.298 107.569C963.766 106.293 961.342 105.017 958.024 103.741C954.834 102.465 950.24 101.252 944.243 100.104C941.564 99.4661 938.118 98.6366 933.907 97.6158C929.824 96.4674 925.805 94.8086 921.849 92.6393C918.021 90.3425 914.703 87.4076 911.896 83.8348C909.089 80.1343 907.685 75.4768 907.685 69.8623C907.685 65.3962 908.642 61.313 910.556 57.6125C912.598 53.7844 915.341 50.4667 918.787 47.6595C922.232 44.7246 926.251 42.4278 930.845 40.769C935.566 39.1101 940.606 38.2807 945.966 38.2807C948.007 38.2807 950.368 38.4083 953.048 38.6635C955.855 38.9187 958.79 39.4291 961.852 40.1948C965.042 40.9604 968.36 42.1088 971.805 43.64C975.251 45.1712 978.632 47.2767 981.95 49.9563L971.231 63.546C968.934 61.7596 966.637 60.3559 964.341 59.3351C962.044 58.3143 959.747 57.5487 957.45 57.0383C955.281 56.4003 953.175 56.0175 951.134 55.8899C949.22 55.6346 947.497 55.507 945.966 55.507C939.458 55.6346 934.29 57.2297 930.462 60.2921C926.762 63.227 924.911 66.4171 924.911 69.8623C924.911 70.5003 925.039 71.3297 925.294 72.3506C925.549 73.3714 926.379 74.5198 927.782 75.7958C929.186 76.9442 931.419 78.2203 934.482 79.6239C937.672 80.8999 942.138 82.1121 947.88 83.2606C950.942 83.8986 954.579 84.7918 958.79 85.9402C963.128 86.961 967.275 88.6199 971.231 90.9167C975.187 93.2135 978.568 96.2122 981.375 99.9127C984.183 103.613 985.586 108.334 985.586 114.077C985.586 118.415 984.566 122.498 982.524 126.326C980.482 130.027 977.675 133.281 974.102 136.088C970.529 138.895 966.318 141.064 961.469 142.596C956.748 144.255 951.58 145.084 945.966 145.084C937.161 145.084 929.505 143.999 922.997 141.83C916.617 139.661 910.939 136.279 905.962 131.686L917.638 119.053Z"/></g></svg>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#how-it-works">How it works</a>
+      <a href="#what-you-get">What you get</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a class="btn js-calendly" href="https://calendly.com/harsh-orvinlabs/20min">Book a call</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="kicker"><span class="dot" aria-hidden="true"></span>AI visibility for B2B SaaS</p>
+          <h1 id="hero-title">Your buyers are asking AI which tool to use. We find out whether it names you.</h1>
+          <p class="sub">Orvin Labs checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google's AI Overviews recommend your product, then shows you what's stopping them.</p>
+          <div class="hero-actions">
+            <a class="btn btn-lg js-calendly" href="https://calendly.com/harsh-orvinlabs/20min">
+              Book a 20 minute call
+              <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+          <p class="note">Built for B2B SaaS. We run live checks on your product before the call, so you leave with findings either way.</p>
+        </div>
+
+        <div class="orbit-panel" aria-hidden="true">
+          <svg class="orbit" viewBox="0 0 400 400" role="presentation" focusable="false">
+            <defs>
+              <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="currentColor" stop-opacity=".55"/>
+                <stop offset="100%" stop-color="currentColor" stop-opacity=".07"/>
+              </linearGradient>
+              <radialGradient id="core" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="currentColor" stop-opacity=".45"/>
+                <stop offset="100%" stop-color="currentColor" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="200" cy="200" r="150" fill="url(#core)"/>
+            <g fill="none" stroke="url(#ring)" stroke-width="1">
+              <circle cx="200" cy="200" r="62"/>
+              <circle cx="200" cy="200" r="112"/>
+              <circle cx="200" cy="200" r="162"/>
+            </g>
+            <g stroke="currentColor" stroke-width="1" stroke-opacity=".28">
+              <line x1="200" y1="200" x2="200" y2="38"/>
+              <line x1="200" y1="200" x2="279" y2="121"/>
+              <line x1="200" y1="200" x2="352" y2="255"/>
+              <line x1="200" y1="200" x2="121" y2="279"/>
+              <line x1="200" y1="200" x2="252" y2="231"/>
+              <line x1="200" y1="200" x2="147" y2="169"/>
+            </g>
+            <g fill="currentColor">
+              <circle cx="200" cy="38" r="5"/>
+              <circle cx="279" cy="121" r="5"/>
+              <circle cx="352" cy="255" r="5"/>
+              <circle cx="121" cy="279" r="5"/>
+              <circle cx="252" cy="231" r="4"/>
+              <circle cx="147" cy="169" r="4"/>
+            </g>
+            <g fill="none" stroke="currentColor" stroke-opacity=".3" stroke-width="1">
+              <circle cx="200" cy="38" r="11"/>
+              <circle cx="279" cy="121" r="11"/>
+              <circle cx="352" cy="255" r="11"/>
+              <circle cx="121" cy="279" r="11"/>
+            </g>
+            <g transform="translate(166.5,164) scale(0.2351)"><path d="M132.023 0C204.938 0.000222479 264.046 63.7864 264.046 142.471C264.046 221.155 204.938 284.941 132.023 284.941C59.1091 284.941 0 221.155 0 142.471C0.000114628 63.7863 59.1092 0 132.023 0ZM170.455 37.3906C154.793 37.391 141.293 46.6383 135.11 59.9697C134.63 59.9602 134.148 59.9541 133.666 59.9541C91.1767 59.9545 56.7315 96.9502 56.7314 142.587C56.7314 157.175 60.2519 170.88 66.4287 182.776C60.3934 189.636 56.7315 198.635 56.7314 208.489C56.7316 229.996 74.1671 247.43 95.6738 247.431C111.213 247.431 124.624 238.328 130.871 225.165C131.798 225.201 132.731 225.22 133.666 225.22C176.156 225.22 210.601 188.224 210.601 142.587C210.601 127.553 206.861 113.457 200.328 101.312C205.988 94.55 209.397 85.8404 209.397 76.333C209.397 54.826 191.962 37.3906 170.455 37.3906Z" fill="currentColor"/></g>
+
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE PROBLEM ===================== -->
+  <section id="the-problem" aria-labelledby="problem-title">
+    <div class="wrap rail">
+      <div aria-hidden="true"></div>
+      <div class="rail-body">
+        <h2 id="problem-title" class="reveal">The problem</h2>
+        <div class="cols cols-3 reveal" style="margin-top:var(--s6)">
+          <article class="col-top">
+            <h3>Buyers shortlist with AI now</h3>
+            <p>Most B2B buyers now use generative AI somewhere in their buying process, and AI answers shape which vendors make the shortlist.</p>
+          </article>
+          <article class="col-top">
+            <h3>Google rankings don't carry over</h3>
+            <p>Fewer than 10% of the sources AI cites match the top 10 Google results. These systems read different signals.</p>
+          </article>
+          <article class="col-top">
+            <h3>AI names two or three tools</h3>
+            <p>The answer is a shortlist, not a results page. You're in it or you're absent.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE CHECK ===================== -->
+  <section id="the-check" class="check-section" aria-labelledby="check-title">
+    <div class="wrap">
+      <div class="try reveal">
+        <p class="rail-label">The check</p>
+        <h2 id="check-title">Try this before you read further</h2>
+        <ol>
+          <li>
+            Open ChatGPT. Ask:
+            <span class="query">&ldquo;best [your category] tool for [your use case]&rdquo;</span>
+          </li>
+          <li>Ask Perplexity the same thing.</li>
+          <li>If your product isn't named, a competitor was just recommended to a buyer in your market.</li>
+        </ol>
+        <p class="kicker-line"><strong>Sixty seconds.</strong> Most teams have never run it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT CHANGES ===================== -->
+  <section id="what-changes" aria-labelledby="changes-title">
+    <div class="wrap rail">
+      <p class="rail-label">Outcomes</p>
+      <div class="rail-body">
+        <h2 id="changes-title" class="reveal">What changes</h2>
+        <div class="cols cols-3 reveal" style="margin-top:var(--s6)">
+          <article class="col-top">
+            <h3>You stop guessing</h3>
+            <p>Most teams have never checked. Afterwards you know which questions name you, which name a competitor, and on which engines.</p>
+          </article>
+          <article class="col-top">
+            <h3>You see the competitor, not a score</h3>
+            <p>Every question where someone else is recommended and you aren't, with the sources that answer was built from.</p>
+          </article>
+          <article class="col-top">
+            <h3>You find what AI gets wrong about you</h3>
+            <p>Outdated pricing, features you discontinued, positioning that was never yours. Those answers are reaching buyers now.</p>
+          </article>
+          <article class="col-top">
+            <h3>You find out if you're blocked</h3>
+            <p>A blocked site can't be cited at all. It is usually a CDN rule nobody set on purpose, and it is a same-day fix.</p>
+          </article>
+          <article class="col-top">
+            <h3>Your analytics stop hiding the channel</h3>
+            <p>AI traffic lands in your Direct bucket by default. Separated out, you can see volume, conversion, and which engine sent it.</p>
+          </article>
+          <article class="col-top">
+            <h3>You get a fix list, not a dependency</h3>
+            <p>Ordered by impact and written for your developers. Plenty of teams take it from there themselves.</p>
+          </article>
+        </div>
+        <p class="reveal" style="margin-top:var(--s7);font-size:1.0625rem;color:var(--ink-2);max-width:var(--prose)">None of this is a promise of placement. Nobody controls what ChatGPT returns. It is a promise that you will know where you stand and what is worth fixing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT WE CHECK ===================== -->
+  <section id="what-we-check" aria-labelledby="checks-title">
+    <div class="wrap rail">
+      <p class="rail-label">What we look at</p>
+      <div class="rail-body">
+        <h2 id="checks-title" class="reveal">What we check</h2>
+        <div class="cols cols-2 reveal" style="margin-top:var(--s6)">
+          <article class="card">
+            <svg class="glyph" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="3.5" y="3.5" width="21" height="21" rx="5"/>
+              <path d="M8.5 14h10M15 10.5l3.5 3.5-3.5 3.5"/>
+            </svg>
+            <h3>AI crawler access</h3>
+            <p>AI tools send their own crawlers. Sites often block them by accident, usually at the CDN layer, and a blocked site can't be cited at all. We check <a href="/ai-crawlers/">every major AI crawler</a>.</p>
+          </article>
+          <article class="card">
+            <svg class="glyph" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 4.5c-3 0-3 2.2-3 4.4s0 3.3-3 3.3c3 0 3 1.1 3 3.3s0 4.4 3 4.4"/>
+              <path d="M16 4.5c3 0 3 2.2 3 4.4s0 3.3 3 3.3c-3 0-3 1.1-3 3.3s0 4.4-3 4.4"/>
+              <path d="M14 23.5v1"/>
+            </svg>
+            <h3>Machine readable data</h3>
+            <p>AI reads structured markup and discovery files before it reads your copy. We report what's present, what's missing, and what's misconfigured.</p>
+          </article>
+          <article class="card">
+            <svg class="glyph" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <circle cx="6" cy="7" r="2.5"/>
+              <circle cx="6" cy="21" r="2.5"/>
+              <circle cx="22" cy="14" r="2.5"/>
+              <path d="M8.3 8.2l11.4 4.6M8.3 19.8l11.4-4.6"/>
+            </svg>
+            <h3>Citation sources</h3>
+            <p>AI answers are built from a specific set of third party sources, and they differ by category. We map which ones drive answers in yours and where you're absent from them.</p>
+          </article>
+          <article class="card">
+            <svg class="glyph" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M3.5 7a3 3 0 013-3h15a3 3 0 013 3v9a3 3 0 01-3 3h-10l-5 4.5V19h-0a3 3 0 01-3-3z"/>
+              <path d="M9 9.5h10M9 13.5h6"/>
+            </svg>
+            <h3>What AI says about you</h3>
+            <p>We ask each engine about your product directly and record the answer, including anything it gets wrong.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="wrap rail">
+      <p class="rail-label">About</p>
+      <div class="rail-body">
+        <div class="prose reveal">
+          <h2 id="about-title">About</h2>
+          <p class="lead-para" style="margin-top:var(--s5)">Orvin Labs is a specialist practice with one focus: whether AI tools recommend your product.</p>
+          <p class="body-para" style="font-size:1.0625rem">Generative engine optimization is barely two years old. The term was coined in 2024 research co authored at IIT Delhi, where Orvin Labs is based. Companies that move while the field is this young will hold position later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE AUDIT ===================== -->
+  <section id="what-you-get" aria-labelledby="audit-title">
+    <div class="wrap rail">
+      <p class="rail-label">The audit</p>
+      <div class="rail-body">
+        <h2 id="audit-title" class="reveal">The AI Visibility Audit</h2>
+        <div class="audit-grid reveal" style="margin-top:var(--s6)">
+          <div class="price-block">
+            <span class="price-big">$750.</span>
+            <p class="price-meta">Five to seven business days.</p>
+            <a class="btn js-calendly" href="https://calendly.com/harsh-orvinlabs/20min">Book a call</a>
+          </div>
+          <div>
+            <h3 class="deliver-head">What lands on your desk:</h3>
+            <ul class="check">
+              <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>20 to 30 real buyer questions, run across ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Every question where a competitor is named and you aren't</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>The sources those answers were built from</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>What each engine says about your product, including factual errors it's repeating to buyers</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Crawler access report across every major AI bot</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Structured data and discovery file report</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>A fix list, ordered by impact</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>A ten minute recorded walkthrough</li>
+              <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>A <a href="/ai-traffic-in-ga4/">GA4 setup guide</a> so AI traffic stops landing in your &ldquo;Direct&rdquo; bucket</li>
+            </ul>
+            <p class="audit-foot">Plenty of teams take the fix list straight to their own developers, and that's a good outcome.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section id="how-it-works" aria-labelledby="how-title">
+    <div class="wrap rail">
+      <p class="rail-label">How it works</p>
+      <div class="rail-body">
+        <h2 id="how-title" class="reveal">How it works</h2>
+        <ol class="steps reveal" style="margin-top:var(--s6)">
+          <li><b>Call.</b> Twenty minutes. We'll have run live checks on your product beforehand.</li>
+          <li><b>Audit.</b> Five to seven days. We need your site and three competitor names.</li>
+          <li><b>Report.</b> PDF plus a ten minute video walkthrough.</li>
+          <li><b>Your call.</b> Hand the fix list to your team, or we stay on and work through it with you.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE RETAINER ===================== -->
+  <section id="retainer" aria-labelledby="retainer-title">
+    <div class="wrap rail">
+      <p class="rail-label">The retainer</p>
+      <div class="rail-body">
+        <div class="retainer-head reveal">
+          <div>
+            <h2 id="retainer-title">Ongoing AI visibility</h2>
+            <p style="margin-top:var(--s3)"><span class="from-price">From $3,000 per month.</span></p>
+          </div>
+          <p class="sect-intro" style="margin:0">The audit tells you where you stand. The retainer is the work that moves it.</p>
+        </div>
+        <div class="retain-grid reveal">
+          <article class="card">
+            <h3>Monthly measurement</h3>
+            <p>Your full question set re-run across the engines. We track where you've gained, where you've slipped, and which competitors moved against you. You see the movement, not a score.</p>
+          </article>
+          <article class="card">
+            <h3>Citation building</h3>
+            <p>This is the bulk of the work. AI systems recommend what independent sources say about you, so we build presence in the third party sources your category's answers are actually constructed from. Earned mentions, review platform presence, comparison and listicle placement, and participation in the communities AI pulls from.</p>
+          </article>
+          <article class="card">
+            <h3>Digital PR</h3>
+            <p>Targeted outreach to publications, newsletters, podcasts and industry sites that feed AI retrieval. Each placement builds a signal that compounds.</p>
+          </article>
+          <article class="card">
+            <h3>Entity and trust building</h3>
+            <p>AI systems need to understand what your company is before they'll recommend it. We work on your entity footprint across the reference layer AI treats as authoritative, and keep your details consistent everywhere they appear.</p>
+          </article>
+          <article class="card">
+            <h3>Correcting the record</h3>
+            <p>AI engines repeat outdated pricing, wrong positioning and features you discontinued. We find those errors and work the sources they come from.</p>
+          </article>
+          <article class="card">
+            <h3>Technical iteration</h3>
+            <p>Markup, discovery files and crawler access reviewed as your site changes. New pages checked before they ship.</p>
+          </article>
+          <article class="card">
+            <h3>Monthly report and call</h3>
+            <p>What moved, what we shipped, what's next, measured against the competitors named in your audit.</p>
+          </article>
+        </div>
+        <p class="retain-note reveal"><strong>Month to month.</strong> You can stop whenever it stops being useful.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRICING ===================== -->
+  <section id="pricing" aria-labelledby="pricing-title">
+    <div class="wrap rail">
+      <p class="rail-label">Pricing</p>
+      <div class="rail-body">
+        <h2 id="pricing-title" class="reveal">Pricing</h2>
+        <dl class="price-list reveal" style="margin-top:var(--s6)">
+          <div class="price-row">
+            <dt>AI Visibility Audit</dt>
+            <dd><span class="amt">$750.</span> One time. Five to seven days.</dd>
+          </div>
+          <div class="price-row">
+            <dt>Implementation support</dt>
+            <dd><span class="amt">$2,500.</span> One time. Two to three weeks. We guide, your developers deploy.</dd>
+          </div>
+          <div class="price-row">
+            <dt>Ongoing AI visibility</dt>
+            <dd><span class="amt">From $3,000 per month.</span></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW WE WORK ===================== -->
+  <section id="how-we-work" aria-labelledby="work-title">
+    <div class="wrap rail">
+      <p class="rail-label">How we work</p>
+      <div class="rail-body">
+        <h2 id="work-title" class="reveal">How we work</h2>
+        <div class="cols cols-2 reveal" style="margin-top:var(--s6)">
+          <article class="col-top">
+            <h3>One service</h3>
+            <p>AI visibility. If your site needs SEO, you want an SEO agency, and we'll tell you that.</p>
+          </article>
+          <article class="col-top">
+            <h3>Your team keeps the keys</h3>
+            <p>We advise, your developers deploy. Nothing we do can break anything.</p>
+          </article>
+          <article class="col-top">
+            <h3>We brief, you publish</h3>
+            <p>Where content needs to change, we tell your team exactly what to add and where. Your voice stays yours.</p>
+          </article>
+          <article class="col-top">
+            <h3>We describe what's achievable</h3>
+            <p>Nobody controls what ChatGPT or Gemini return. Any agency promising guaranteed placement is promising something that isn't theirs to give. We'll tell you what we can move and what we can't.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HONEST SECTION ===================== -->
+  <section id="worth-doing" aria-labelledby="honest-title">
+    <div class="wrap rail">
+      <p class="rail-label">Straight answer</p>
+      <div class="rail-body">
+        <div class="prose reveal">
+          <h2 id="honest-title">Is this worth doing yet?</h2>
+          <p class="lead-para" style="margin-top:var(--s5)">Straight answer: AI search is a small share of web traffic today. Google is still far larger.</p>
+          <p class="body-para">Traffic is the wrong measure. The shortlist forms before anyone clicks. A buyer who asks an assistant which tools to consider has narrowed the field to two or three names before your site ever sees a visit, and that happens whether or not the click ever lands on you.</p>
+          <p class="body-para">What's changed is the direction. The channel is growing quickly, the traffic converts better in B2B, and almost nobody in your category has done the work.</p>
+          <p class="body-para">The technical fixes are inexpensive and they last. Citation presence compounds, which means it's cheaper to build now than in two years when your competitors are entrenched. The real question is whether you'd rather be positioned before this matters or after.</p>
+          <p class="quote-rule" style="margin-top:var(--s4)">If the honest answer for you is &ldquo;later,&rdquo; that's a reasonable call, and we'd rather say it than sell past it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHO IT'S FOR ===================== -->
+  <section id="who-its-for" aria-labelledby="who-title">
+    <div class="wrap rail">
+      <p class="rail-label">Who it's for</p>
+      <div class="rail-body">
+        <div class="prose reveal">
+          <h2 id="who-title">Who we work with</h2>
+          <p class="lead-para" style="margin-top:var(--s5)">B2B SaaS and software companies where buyers compare options before they buy.</p>
+          <p class="body-para" style="font-size:1.0625rem">You have someone running marketing. Nobody owns AI visibility yet. Your competitors are already showing up in ChatGPT.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="questions" aria-labelledby="faq-title">
+    <div class="wrap rail">
+      <p class="rail-label">FAQ</p>
+      <div class="rail-body">
+        <h2 id="faq-title" class="reveal">Questions</h2>
+        <dl class="faq reveal" style="margin-top:var(--s6)">
+          <dt>Isn't this just SEO?</dt>
+          <dd>Partly, and we'll say so. For Google's AI Overviews, Google states it's still SEO, and they're right. ChatGPT accounts for the large majority of AI referral traffic and doesn't run on Google's index, so that part is a separate problem with separate inputs.</dd>
+
+          <dt>Couldn't we do this in house?</dt>
+          <dd>Some teams do. It needs someone who can run the question set across six engines consistently, read the results against competitor movement, work the citation sources your category is built from, and keep the technical layer current as the site changes. That's a role, not a task. If you have someone free to own it, you don't need us.</dd>
+
+          <dt>How long until we see movement?</dt>
+          <dd>Technical fixes take effect in days to weeks. Citation work takes one to three months. We'll tell you at audit stage what's realistic for your situation.</dd>
+
+          <dt>Do you need access to our site?</dt>
+          <dd>No. We work from public data.</dd>
+
+          <dt>What if the audit says we're already doing well?</dt>
+          <dd>Then we'll tell you, and you'll know. It happens, and it's worth the $750 to find out.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CLOSE ===================== -->
+  <section id="book" class="close" aria-labelledby="close-title">
+    <div class="wrap">
+      <div class="reveal">
+        <h2 id="close-title">See where you stand</h2>
+        <div class="prose">
+          <p>Ask ChatGPT and Perplexity who the best tool in your category is.</p>
+          <p>If you're not named, let's talk. If you are, we'll tell you that too.</p>
+        </div>
+        <a class="btn btn-lg js-calendly" href="https://calendly.com/harsh-orvinlabs/20min">
+          Book a 20 minute call
+          <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="brand">
+          <svg class="brand-mark" width="20" height="22" viewBox="0 0 265 285" aria-hidden="true" focusable="false"><path d="M132.023 0C204.938 0.000222479 264.046 63.7864 264.046 142.471C264.046 221.155 204.938 284.941 132.023 284.941C59.1091 284.941 0 221.155 0 142.471C0.000114628 63.7863 59.1092 0 132.023 0ZM170.455 37.3906C154.793 37.391 141.293 46.6383 135.11 59.9697C134.63 59.9602 134.148 59.9541 133.666 59.9541C91.1767 59.9545 56.7315 96.9502 56.7314 142.587C56.7314 157.175 60.2519 170.88 66.4287 182.776C60.3934 189.636 56.7315 198.635 56.7314 208.489C56.7316 229.996 74.1671 247.43 95.6738 247.431C111.213 247.431 124.624 238.328 130.871 225.165C131.798 225.201 132.731 225.22 133.666 225.22C176.156 225.22 210.601 188.224 210.601 142.587C210.601 127.553 206.861 113.457 200.328 101.312C205.988 94.55 209.397 85.8404 209.397 76.333C209.397 54.826 191.962 37.3906 170.455 37.3906Z" fill="var(--accent)"/></svg>
+          <span>Orvin Labs</span>
+        </span>
+        <p>AI visibility for B2B SaaS.</p>
+      </div>
+      <div>
+        <p><a class="mail" href="mailto:harsh@orvinlabs.com">harsh@orvinlabs.com</a></p>
+        <p><a class="mail" href="https://www.linkedin.com/company/orvin-labs/" rel="noopener" target="_blank">LinkedIn</a></p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="foot-list">
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#what-you-get">What you get</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="/ai-crawlers/">AI crawler reference</a></li>
+          <li><a href="/ai-traffic-in-ga4/">AI traffic in GA4</a></li>
+          <li><a href="/llms.txt">llms.txt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  /* Scroll reveal: fade and rise, 300ms ease-out, disabled under reduced motion. */
+  var items = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (var i = 0; i < items.length; i++) items[i].classList.add('in');
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    for (var j = 0; j < items.length; j++) io.observe(items[j]);
+  }
+
+  /* Calendly popup, loaded on first click only. Links work without JS. */
+  var assetsPromise = null;
+  function loadAssets(){
+    if (assetsPromise) return assetsPromise;
+    assetsPromise = new Promise(function(resolve, reject){
+      var css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = 'https://assets.calendly.com/assets/external/widget.css';
+      document.head.appendChild(css);
+      var js = document.createElement('script');
+      js.src = 'https://assets.calendly.com/assets/external/widget.js';
+      js.async = true;
+      js.onload = resolve;
+      js.onerror = reject;
+      document.head.appendChild(js);
+    });
+    return assetsPromise;
+  }
+  document.addEventListener('click', function(ev){
+    var link = ev.target.closest ? ev.target.closest('a.js-calendly') : null;
+    if (!link) return;
+    var url = link.getAttribute('href');
+    if (!url || url.indexOf('http') !== 0) return; /* placeholder not replaced yet */
+    if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button !== 0) return;
+    ev.preventDefault();
+    loadAssets().then(function(){
+      if (window.Calendly) window.Calendly.initPopupWidget({ url: url });
+      else window.open(url, '_blank', 'noopener');
+    }).catch(function(){
+      window.open(url, '_blank', 'noopener');
+    });
+  });
+})();
+</script>
+</body>
+</html>

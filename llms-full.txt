@@ -1,0 +1,307 @@
+# Orvin Labs — AI Visibility for B2B SaaS
+
+> Orvin Labs checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend your product, then shows you what's stopping them.
+
+Website: https://orvinlabs.com
+Contact: harsh@orvinlabs.com
+
+---
+
+## Your buyers are asking AI which tool to use. We find out whether it names you.
+
+Orvin Labs checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google's AI Overviews recommend your product, then shows you what's stopping them.
+
+Built for B2B SaaS. We run live checks on your product before the call, so you leave with findings either way.
+
+---
+
+## The problem
+
+### Buyers shortlist with AI now
+
+Most B2B buyers now use generative AI somewhere in their buying process, and AI answers shape which vendors make the shortlist.
+
+### Google rankings don't carry over
+
+Fewer than 10% of the sources AI cites match the top 10 Google results. These systems read different signals.
+
+### AI names two or three tools
+
+The answer is a shortlist, not a results page. You're in it or you're absent.
+
+---
+
+## Try this before you read further
+
+1. Open ChatGPT. Ask: "best [your category] tool for [your use case]"
+2. Ask Perplexity the same thing.
+3. If your product isn't named, a competitor was just recommended to a buyer in your market.
+
+Sixty seconds. Most teams have never run it.
+
+---
+
+## What changes
+
+You stop guessing. Most teams have never checked. Afterwards you know which questions name you, which name a competitor, and on which engines.
+
+You see the competitor, not a score. Every question where someone else is recommended and you aren't, with the sources that answer was built from.
+
+You find what AI gets wrong about you. Outdated pricing, features you discontinued, positioning that was never yours. Those answers are reaching buyers now.
+
+You find out if you're blocked. A blocked site can't be cited at all. It is usually a CDN rule nobody set on purpose, and it is a same-day fix.
+
+Your analytics stop hiding the channel. AI traffic lands in your Direct bucket by default. Separated out, you can see volume, conversion, and which engine sent it.
+
+You get a fix list, not a dependency. Ordered by impact and written for your developers. Plenty of teams take it from there themselves.
+
+None of this is a promise of placement. Nobody controls what ChatGPT returns. It is a promise that you will know where you stand and what is worth fixing.
+
+---
+
+## What we check
+
+### AI crawler access
+
+AI tools send their own crawlers. Sites often block them by accident, usually at the CDN layer, and a blocked site can't be cited at all. We check every major AI crawler.
+
+### Machine readable data
+
+AI reads structured markup and discovery files before it reads your copy. We report what's present, what's missing, and what's misconfigured.
+
+### Citation sources
+
+AI answers are built from a specific set of third party sources, and they differ by category. We map which ones drive answers in yours and where you're absent from them.
+
+### What AI says about you
+
+We ask each engine about your product directly and record the answer, including anything it gets wrong.
+
+---
+
+
+## About
+
+Orvin Labs is a specialist practice with one focus: whether AI tools recommend your product.
+
+Generative engine optimization is barely two years old. The term was coined in 2024 research co authored at IIT Delhi, where Orvin Labs is based. Companies that move while the field is this young will hold position later.
+
+---
+
+## The AI Visibility Audit
+
+$750. Five to seven business days.
+
+What lands on your desk:
+
+- 20 to 30 real buyer questions, run across ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews
+- Every question where a competitor is named and you aren't
+- The sources those answers were built from
+- What each engine says about your product, including factual errors it's repeating to buyers
+- Crawler access report across every major AI bot
+- Structured data and discovery file report
+- A fix list, ordered by impact
+- A ten minute recorded walkthrough
+- A GA4 setup guide so AI traffic stops landing in your "Direct" bucket
+
+Plenty of teams take the fix list straight to their own developers, and that's a good outcome.
+
+---
+
+## How it works
+
+1. Call. Twenty minutes. We'll have run live checks on your product beforehand.
+2. Audit. Five to seven days. We need your site and three competitor names.
+3. Report. PDF plus a ten minute video walkthrough.
+4. Your call. Hand the fix list to your team, or we stay on and work through it with you.
+
+---
+
+## Ongoing AI visibility
+
+From $3,000 per month.
+
+The audit tells you where you stand. The retainer is the work that moves it.
+
+### Monthly measurement
+
+Your full question set re-run across the engines. We track where you've gained, where you've slipped, and which competitors moved against you. You see the movement, not a score.
+
+### Citation building
+
+This is the bulk of the work. AI systems recommend what independent sources say about you, so we build presence in the third party sources your category's answers are actually constructed from. Earned mentions, review platform presence, comparison and listicle placement, and participation in the communities AI pulls from.
+
+### Digital PR
+
+Targeted outreach to publications, newsletters, podcasts and industry sites that feed AI retrieval. Each placement builds a signal that compounds.
+
+### Entity and trust building
+
+AI systems need to understand what your company is before they'll recommend it. We work on your entity footprint across the reference layer AI treats as authoritative, and keep your details consistent everywhere they appear.
+
+### Correcting the record
+
+AI engines repeat outdated pricing, wrong positioning and features you discontinued. We find those errors and work the sources they come from.
+
+### Technical iteration
+
+Markup, discovery files and crawler access reviewed as your site changes. New pages checked before they ship.
+
+### Monthly report and call
+
+What moved, what we shipped, what's next, measured against the competitors named in your audit.
+
+Month to month. You can stop whenever it stops being useful.
+
+---
+
+## Pricing
+
+### AI Visibility Audit
+
+$750. One time. Five to seven days.
+
+### Implementation support
+
+$2,500. One time. Two to three weeks. We guide, your developers deploy.
+
+### Ongoing AI visibility
+
+From $3,000 per month.
+
+---
+
+## How we work
+
+### One service
+
+AI visibility. If your site needs SEO, you want an SEO agency, and we'll tell you that.
+
+### Your team keeps the keys
+
+We advise, your developers deploy. Nothing we do can break anything.
+
+### We brief, you publish
+
+Where content needs to change, we tell your team exactly what to add and where. Your voice stays yours.
+
+### We describe what's achievable
+
+Nobody controls what ChatGPT or Gemini return. Any agency promising guaranteed placement is promising something that isn't theirs to give. We'll tell you what we can move and what we can't.
+
+---
+
+## Is this worth doing yet?
+
+Straight answer: AI search is a small share of web traffic today. Google is still far larger.
+
+Traffic is the wrong measure. The shortlist forms before anyone clicks. A buyer who asks an assistant which tools to consider has narrowed the field to two or three names before your site ever sees a visit, and that happens whether or not the click ever lands on you.
+
+What's changed is the direction. The channel is growing quickly, the traffic converts better in B2B, and almost nobody in your category has done the work.
+
+The technical fixes are inexpensive and they last. Citation presence compounds, which means it's cheaper to build now than in two years when your competitors are entrenched. The real question is whether you'd rather be positioned before this matters or after.
+
+If the honest answer for you is "later," that's a reasonable call, and we'd rather say it than sell past it.
+
+---
+
+## Who we work with
+
+B2B SaaS and software companies where buyers compare options before they buy.
+
+You have someone running marketing. Nobody owns AI visibility yet. Your competitors are already showing up in ChatGPT.
+
+---
+
+## Questions
+
+### Isn't this just SEO?
+
+Partly, and we'll say so. For Google's AI Overviews, Google states it's still SEO, and they're right. ChatGPT accounts for the large majority of AI referral traffic and doesn't run on Google's index, so that part is a separate problem with separate inputs.
+
+### Couldn't we do this in house?
+
+Some teams do. It needs someone who can run the question set across six engines consistently, read the results against competitor movement, work the citation sources your category is built from, and keep the technical layer current as the site changes. That's a role, not a task. If you have someone free to own it, you don't need us.
+
+### How long until we see movement?
+
+Technical fixes take effect in days to weeks. Citation work takes one to three months. We'll tell you at audit stage what's realistic for your situation.
+
+### Do you need access to our site?
+
+No. We work from public data.
+
+### What if the audit says we're already doing well?
+
+Then we'll tell you, and you'll know. It happens, and it's worth the $750 to find out.
+
+---
+
+
+## See where you stand
+
+Ask ChatGPT and Perplexity who the best tool in your category is.
+
+If you're not named, let's talk. If you are, we'll tell you that too.
+
+---
+
+---
+
+# Reference: AI crawler reference
+
+Source: https://orvinlabs.com/ai-crawlers/
+Author: Harsh Vardhan Goel, founder of Orvin Labs.
+Last verified against operator documentation: 3 October 2026.
+
+There are four kinds of AI user agent and only two of them fetch pages.
+
+1. Retrieval crawlers build the index an assistant searches when answering a question. OAI-SearchBot, PerplexityBot, Claude-SearchBot and Googlebot are in this group. These determine whether a site can be cited.
+2. Training crawlers collect content that may train future models. GPTBot, ClaudeBot and CCBot are here. Blocking them affects future model weights, not today's answers.
+3. User-triggered fetchers fetch a page because a person asked the assistant to look at it. ChatGPT-User, Claude-User and Perplexity-User are here.
+4. Control tokens are not crawlers. Google-Extended and Applebot-Extended have no user agent and fetch nothing.
+
+Current robots.txt tokens by operator:
+
+- OpenAI: OAI-SearchBot (retrieval), GPTBot (training), ChatGPT-User (user-triggered, may not apply robots.txt), OAI-AdsBot (ad landing page safety).
+- Anthropic: Claude-SearchBot (retrieval), ClaudeBot (training), Claude-User (user-triggered). The tokens Claude-Web and anthropic-ai do not appear in Anthropic's current documentation.
+- Perplexity: PerplexityBot (retrieval, does not train models), Perplexity-User (user-triggered, generally ignores robots.txt).
+- Google: Googlebot (retrieval), Google-Extended (control token), Google-CloudVertexBot (Vertex AI agents).
+- Apple: Applebot (retrieval and training), Applebot-Extended (control token).
+
+Blocking Google-Extended does not remove a site from Google AI Overviews. Google-Extended has no separate HTTP user agent, does not impact inclusion in Google Search, and is not a ranking signal. AI Overviews are assembled from Google's search index, which Googlebot populates. Disallowing Applebot-Extended similarly withholds content only from Apple's foundation-model training; pages remain discoverable through Spotlight, Siri and Safari.
+
+A site that allows GPTBot but blocks OAI-SearchBot has permitted its content into model training while removing itself from the index ChatGPT searches when answering a question.
+
+Most crawler blocking happens above robots.txt, at the CDN or WAF layer. Bot management rules, rate limits, JavaScript challenges and country blocks reject the request before robots.txt is consulted. A robots.txt that allows every AI crawler says nothing about whether those crawlers receive a 200 response.
+
+---
+
+# Reference: Why AI traffic lands in your Direct bucket, and how to fix it in GA4
+
+Source: https://orvinlabs.com/ai-traffic-in-ga4/
+Author: Harsh Vardhan Goel, founder of Orvin Labs.
+Last verified: 3 October 2026.
+
+Google Analytics 4 has no default channel rule for AI assistant hostnames. Sessions that arrive with a referrer fall into Referral. Sessions that arrive without one, typically from a desktop or mobile app that opens the link outside a browsing context, fall into Direct.
+
+This is a reporting problem, not a tracking problem. The sessions were recorded. GA4 had no label for them.
+
+GA4 added a native AI Assistant channel in May 2026. Its source list is incomplete and cannot be edited, and it is not retroactive.
+
+A custom channel group has neither limit. GA4 applies channel groupings at query time rather than at collection time, so a custom channel group applies retroactively and covers sessions recorded before it was created.
+
+Setup: Admin, then Data display, then Channel groups. Add a channel named AI Assistants. Set the condition to Session source with the operator matches regex. Enter a pattern matching AI assistant hostnames. Drag the channel above Referral, because GA4 evaluates channels top to bottom and stops at the first match. Save and verify in Reports, Acquisition, Traffic acquisition.
+
+Traffic from Google AI Overviews cannot be separated in GA4. It arrives with the same google / organic source and medium as any other Google search click and carries nothing that distinguishes it. No regex, channel group or filter can isolate it.
+
+---
+
+## Contact
+
+Orvin Labs
+harsh@orvinlabs.com
+AI visibility for B2B SaaS.
+
+LinkedIn: https://www.linkedin.com/company/orvin-labs/
+Founder: Harsh Vardhan Goel, https://www.linkedin.com/in/harsh-vardhan-goel-856446290

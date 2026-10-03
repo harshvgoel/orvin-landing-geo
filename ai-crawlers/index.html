@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Crawler Reference: What Each Bot Does | Orvin Labs</title>
+<meta name="description" content="Four kinds of AI user agent, only two fetch pages. Verified robots.txt tokens for OpenAI, Anthropic, Perplexity, Google and Apple.">
+<link rel="canonical" href="https://orvinlabs.com/ai-crawlers/">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0B0A09" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Orvin Labs">
+<meta property="og:url" content="https://orvinlabs.com/ai-crawlers/">
+<meta property="og:title" content="AI Crawler Reference: What Each Bot Does">
+<meta property="og:description" content="Four kinds of AI user agent, only two fetch pages. Verified robots.txt tokens for OpenAI, Anthropic, Perplexity, Google and Apple.">
+<meta property="og:image" content="https://orvinlabs.com/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Crawler Reference: What Each Bot Does">
+<meta name="twitter:description" content="Four kinds of AI user agent, only two fetch pages. Verified robots.txt tokens for OpenAI, Anthropic, Perplexity, Google and Apple.">
+<meta name="twitter:image" content="https://orvinlabs.com/og.png">
+
+<style>
+:root{
+  --accent:#F65E1D; --accent-ink:#F65E1D; --accent-strong:#F65E1D; --accent-hover:#FF7437; --accent-on:#0B0A09;
+  --bg:#0B0A09; --surface:#141210; --surface-2:#1B1816;
+  --line:#262220; --line-2:#332E2A;
+  --ink:#FAF8F6; --ink-2:#B5ADA6; --ink-3:#8A827B;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:56px; --s7:72px;
+  --radius:10px; --radius-sm:6px;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --accent:#F65E1D; --accent-ink:#C2410C; --accent-strong:#F65E1D; --accent-hover:#D94E13;
+    --bg:#FFFFFF; --surface:#FAF9F8; --surface-2:#F3F0EE;
+    --line:#E8E3DF; --line-2:#D6CFC9;
+    --ink:#0F0D0B; --ink-2:#57514B; --ink-3:#78706A;
+  }
+}
+:root[data-theme="light"]{
+  --accent:#F65E1D; --accent-ink:#C2410C; --accent-strong:#F65E1D; --accent-hover:#D94E13;
+  --bg:#FFFFFF; --surface:#FAF9F8; --surface-2:#F3F0EE;
+  --line:#E8E3DF; --line-2:#D6CFC9; --ink:#0F0D0B; --ink-2:#57514B; --ink-3:#78706A;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);
+}
+@media (min-width:768px){ body{font-size:18px} }
+h1,h2,h3{margin:0;color:var(--ink);font-weight:650;letter-spacing:-0.022em;line-height:1.15}
+h1{font-size:clamp(1.875rem,3.6vw,2.75rem);letter-spacing:-0.03em;font-weight:700;line-height:1.1}
+h2{font-size:clamp(1.375rem,2.4vw,1.75rem);margin-top:var(--s7)}
+h3{font-size:1.0625rem;margin-top:var(--s5)}
+p{margin:0 0 var(--s3)}
+a{color:inherit}
+article a:not(.btn){color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+article a:not(.btn):hover{text-decoration-thickness:2px}
+strong{font-weight:650;color:var(--ink)}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px;width:100%}
+@media (min-width:768px){ .wrap{padding:0 var(--s5)} }
+.skip{position:absolute;left:var(--s2);top:-100px;z-index:100;background:var(--surface);color:var(--ink);border:1px solid var(--line-2);padding:12px 16px;border-radius:var(--radius-sm)}
+.skip:focus{top:var(--s2)}
+.header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.header-inner{display:flex;align-items:center;gap:var(--s3);min-height:64px;max-width:820px;margin:0 auto;padding:0 20px}
+@media (min-width:768px){ .header-inner{padding:0 var(--s5)} }
+.brand-lockup{height:23px;width:auto;display:block;flex:none}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:650;font-size:.9375rem;letter-spacing:-0.015em;min-height:44px;text-decoration:none}
+.brand svg{display:block;flex:none;color:var(--accent-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;background:var(--accent-strong);color:var(--accent-on);border-radius:var(--radius-sm);font-size:.875rem;font-weight:600;margin-left:auto;text-decoration:none}
+.btn:hover{background:var(--accent-hover)}
+main{padding:var(--s7) 0 var(--s7)}
+.crumb{font-family:var(--mono);font-size:.6875rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 var(--s3);display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px}
+.crumb::before{content:"";width:18px;height:1px;background:var(--accent);flex:none}
+@media (max-width:480px){ .crumb{letter-spacing:.08em} .crumb::before{display:none} }
+.crumb a{color:var(--ink-3);text-decoration:none}
+.crumb a:hover{color:var(--accent-ink)}
+.standfirst{font-size:1.1875rem;color:var(--ink-2);margin:var(--s4) 0 var(--s5);line-height:1.55}
+.byline{font-size:.9375rem;color:var(--ink-2);margin:var(--s4) 0 0}
+.byline strong{color:var(--ink);font-weight:650}
+.meta{font-family:var(--mono);font-size:.75rem;color:var(--ink-3);padding:var(--s3) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:var(--s6)}
+.table-scroll{overflow-x:auto;margin:var(--s4) 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.9375rem}
+caption{text-align:left;font-size:.8125rem;color:var(--ink-3);padding:var(--s2) var(--s3);border-bottom:1px solid var(--line)}
+th,td{text-align:left;padding:12px var(--s3);border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-size:.6875rem;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;background:var(--surface)}
+tbody tr:last-child td{border-bottom:0}
+td code,p code,li code{font-family:var(--mono);font-size:.875em;background:var(--surface-2);border:1px solid var(--line);border-radius:4px;padding:2px 6px;color:var(--accent-ink);white-space:nowrap}
+.yes{color:var(--ink-2)}
+.no{color:var(--ink);font-weight:600}
+pre{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s3);overflow-x:auto;margin:var(--s3) 0;font-family:var(--mono);font-size:.8125rem;line-height:1.6;color:var(--ink-2)}
+pre code{background:none;border:0;padding:0;color:inherit;white-space:pre}
+.callout{border:1px solid var(--accent);border-radius:var(--radius);background:var(--surface);padding:var(--s4);margin:var(--s5) 0}
+.callout h3{margin-top:0}
+.callout p:last-child{margin-bottom:0}
+ul,ol{margin:0 0 var(--s3);padding-left:1.35em;color:var(--ink-2)}
+li{margin-bottom:10px}
+li::marker{color:var(--ink-3)}
+article p{color:var(--ink-2)}
+article h2,article h3{color:var(--ink)}
+.sources{font-size:.9375rem}
+.sources li{margin-bottom:8px}
+.endcta{margin-top:var(--s7);padding-top:var(--s6);border-top:1px solid var(--line)}
+.endcta p{max-width:34rem}
+.footer{border-top:1px solid var(--line);padding:var(--s6) 0 calc(var(--s6) + env(safe-area-inset-bottom));margin-top:var(--s7)}
+.footer p{color:var(--ink-3);font-size:.9375rem;margin:0 0 var(--s1)}
+.footer a{color:var(--ink-2)}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important;transition:none!important} }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://orvinlabs.com/#organization",
+      "name": "Orvin Labs",
+      "url": "https://orvinlabs.com",
+      "email": "harsh@orvinlabs.com",
+      "description": "Orvin Labs is an AI visibility consultancy for B2B SaaS companies.",
+      "sameAs": [
+        "https://www.linkedin.com/company/orvin-labs/"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://orvinlabs.com/#logo",
+        "url": "https://orvinlabs.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "knowsAbout": [
+        "Generative Engine Optimization",
+        "Answer Engine Optimization",
+        "AI Visibility",
+        "AI Search Optimization",
+        "LLM Optimization",
+        "B2B SaaS Marketing"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://orvinlabs.com/#website",
+      "name": "Orvin Labs",
+      "url": "https://orvinlabs.com",
+      "publisher": { "@id": "https://orvinlabs.com/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://orvinlabs.com/#person",
+      "name": "Harsh Vardhan Goel",
+      "jobTitle": "Founder",
+      "email": "harsh@orvinlabs.com",
+      "worksFor": { "@id": "https://orvinlabs.com/#organization" },
+      "workLocation": { "@type": "Place", "name": "IIT Delhi" },
+      "sameAs": [
+        "https://www.linkedin.com/in/harsh-vardhan-goel-856446290"
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://orvinlabs.com/ai-crawlers/#article",
+      "headline": "AI crawler reference: every bot that matters, and what each one actually does",
+      "description": "Four kinds of AI user agent, only two fetch pages. Verified robots.txt tokens for OpenAI, Anthropic, Perplexity, Google and Apple.",
+      "url": "https://orvinlabs.com/ai-crawlers/",
+      "inLanguage": "en",
+      "dateModified": "2026-10-03",
+      "datePublished": "2026-10-03",
+      "author": { "@id": "https://orvinlabs.com/#person" },
+      "publisher": { "@id": "https://orvinlabs.com/#organization" },
+      "isPartOf": { "@id": "https://orvinlabs.com/#website" },
+      "about": [
+        { "@type": "Thing", "name": "Web crawler" },
+        { "@type": "Thing", "name": "robots.txt" },
+        { "@type": "Thing", "name": "Generative Engine Optimization" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://orvinlabs.com/ai-crawlers/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Orvin Labs", "item": "https://orvinlabs.com" },
+        { "@type": "ListItem", "position": 2, "name": "AI crawler reference", "item": "https://orvinlabs.com/ai-crawlers/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://orvinlabs.com/ai-crawlers/#faq",
+      "isPartOf": { "@id": "https://orvinlabs.com/ai-crawlers/#article" },
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does blocking Google-Extended remove me from AI Overviews?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Google-Extended is a control token, not a crawler. It has no separate user agent and does no fetching of its own. Google documents that it does not affect inclusion in Google Search and is not a ranking signal. It governs whether already-crawled content may be used to train Gemini models and to ground Gemini and Vertex AI. AI Overviews are built on Google's search index, which Googlebot populates, so blocking Googlebot is what removes you from AI Overviews."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI crawlers actually decide whether I get cited?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The retrieval crawlers, not the training crawlers. OAI-SearchBot surfaces sites in ChatGPT search, PerplexityBot surfaces and links sites in Perplexity, and Claude-SearchBot supports Claude's search results. Blocking a training crawler such as GPTBot or ClaudeBot keeps your content out of future model training but does not by itself stop you being cited in a live answer. Blocking a retrieval crawler does."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do user-triggered AI fetchers obey robots.txt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not reliably. OpenAI documents that ChatGPT-User may not apply robots.txt rules because it acts on a direct user request rather than autonomous crawling. Perplexity documents that Perplexity-User generally ignores robots.txt for the same reason. Treat robots.txt as a signal to autonomous crawlers, not as an access control."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does a site pass robots.txt checks but still get blocked?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because most blocking happens above robots.txt, at the CDN or WAF layer. Bot-management rules, rate limits, JavaScript challenges and country blocks reject the request before robots.txt is ever consulted. A robots.txt file that allows every AI crawler tells you nothing about whether those crawlers receive a 200 response."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="Orvin Labs, home">
+      <svg class="brand-lockup" viewBox="0 0 1341 285" role="img" aria-label="Orvin Labs" focusable="false"><path d="M132.023 0C204.938 0.000222479 264.046 63.7864 264.046 142.471C264.046 221.155 204.938 284.941 132.023 284.941C59.1091 284.941 0 221.155 0 142.471C0.000114628 63.7863 59.1092 0 132.023 0ZM170.455 37.3906C154.793 37.391 141.293 46.6383 135.11 59.9697C134.63 59.9602 134.148 59.9541 133.666 59.9541C91.1767 59.9545 56.7315 96.9502 56.7314 142.587C56.7314 157.175 60.2519 170.88 66.4287 182.776C60.3934 189.636 56.7315 198.635 56.7314 208.489C56.7316 229.996 74.1671 247.43 95.6738 247.431C111.213 247.431 124.624 238.328 130.871 225.165C131.798 225.201 132.731 225.22 133.666 225.22C176.156 225.22 210.601 188.224 210.601 142.587C210.601 127.553 206.861 113.457 200.328 101.312C205.988 94.55 209.397 85.8404 209.397 76.333C209.397 54.826 191.962 37.3906 170.455 37.3906Z" fill="var(--accent)"/><g transform="translate(355,69.5)" fill="currentColor"><path d="M0 72.3506C0 62.3976 1.85023 53.0188 5.5507 44.2142C9.37878 35.4097 14.5467 27.7535 21.0544 21.2458C27.6897 14.7381 35.4097 9.57018 44.2142 5.74211C53.0188 1.91404 62.3976 0 72.3506 0C82.3035 0 91.6823 1.91404 100.487 5.74211C109.291 9.57018 116.948 14.7381 123.455 21.2458C130.091 27.7535 135.322 35.4097 139.15 44.2142C142.978 53.0188 144.893 62.3976 144.893 72.3506C144.893 82.3035 142.978 91.6823 139.15 100.487C135.322 109.291 130.091 117.011 123.455 123.647C116.948 130.154 109.291 135.322 100.487 139.15C91.6823 142.978 82.3035 144.893 72.3506 144.893C62.3976 144.893 53.0188 142.978 44.2142 139.15C35.4097 135.322 27.6897 130.154 21.0544 123.647C14.5467 117.011 9.37878 109.291 5.5507 100.487C1.85023 91.6823 0 82.3035 0 72.3506ZM72.3506 127.092C79.2411 127.092 85.7488 125.688 91.8737 122.881C97.9986 119.946 103.294 115.991 107.76 111.014C112.354 106.038 115.927 100.232 118.479 93.5964C121.158 86.961 122.498 79.8791 122.498 72.3506C122.498 64.822 121.158 57.7401 118.479 51.1048C115.927 44.4694 112.354 38.7273 107.76 33.8784C103.294 28.9019 97.9986 25.0101 91.8737 22.2028C85.7488 19.268 79.2411 17.8005 72.3506 17.8005C65.46 17.8005 58.9523 19.268 52.8274 22.2028C46.8301 25.0101 41.5346 28.9019 36.9409 33.8784C32.3472 38.7273 28.7105 44.4694 26.0309 51.1048C23.4788 57.7401 22.2028 64.822 22.2028 72.3506C22.2028 79.8791 23.4788 86.961 26.0309 93.5964C28.7105 100.232 32.3472 106.038 36.9409 111.014C41.5346 115.991 46.8301 119.946 52.8274 122.881C58.9523 125.688 65.46 127.092 72.3506 127.092Z"/><path d="M161.782 40.9604H181.114V48.9993C184.559 45.6817 188.324 43.1296 192.407 41.3432C196.618 39.5567 201.02 38.6635 205.614 38.6635C211.739 38.6635 217.608 40.0033 223.223 42.683C228.965 45.235 233.814 49.1269 237.77 54.3586C234.962 56.5279 232.155 58.8885 229.348 61.4406C226.541 63.9926 224.308 65.9704 222.649 67.3741C220.224 64.0564 217.417 61.5044 214.227 59.7179C211.037 57.9315 207.719 56.9107 204.274 56.6555C199.425 56.4003 194.959 57.4211 190.876 59.7179C186.92 61.8872 183.666 65.0772 181.114 69.2881V142.596H161.782V40.9604Z"/><path d="M318.57 41.3432L340.199 40.9604L298.09 142.213H281.247L239.138 40.9604L260.192 39.8119L289.668 110.823L318.57 41.3432Z"/><path d="M373.119 40.9604V142.596H353.596V40.9604H373.119ZM352.064 11.2928C352.064 8.23036 353.149 5.61451 355.318 3.44527C357.488 1.27602 360.167 0.191401 363.357 0.191401C366.42 0.191401 369.036 1.27602 371.205 3.44527C373.502 5.61451 374.65 8.23036 374.65 11.2928C374.65 14.4829 373.502 17.1625 371.205 19.3318C369.036 21.501 366.42 22.5856 363.357 22.5856C360.167 22.5856 357.488 21.501 355.318 19.3318C353.149 17.1625 352.064 14.4829 352.064 11.2928Z"/><path d="M395.616 142.596V40.9604H414.948V50.722C418.904 47.0215 423.306 44.0866 428.155 41.9174C433.004 39.7481 438.108 38.6635 443.467 38.6635C449.209 38.6635 454.76 39.6205 460.119 41.5346C465.606 43.321 470.455 46.1283 474.666 49.9563C478.877 53.6568 482.258 58.3143 484.81 63.9288C487.49 69.4157 488.83 75.8596 488.83 83.2606L489.021 142.213H470.072L469.881 87.4714C469.881 82.3673 469.115 77.8375 467.584 73.8818C466.053 69.9261 464.011 66.5446 461.459 63.7374C458.907 60.9301 455.972 58.7609 452.655 57.2297C449.464 55.6984 446.147 54.869 442.702 54.7414C436.959 54.4862 431.6 55.5708 426.624 57.9953C421.775 60.4197 417.883 64.0564 414.948 68.9053V142.596H395.616Z"/><path d="M574.679 125.178H650.092V142.596H553.05V2.29685H574.679V125.178Z"/><path d="M710.572 38.6635C717.463 38.6635 723.971 39.9396 730.095 42.4916C736.22 44.916 741.644 48.3613 746.365 52.8274V40.9604H765.697V142.213H746.365V130.729C741.644 135.195 736.22 138.704 730.095 141.256C723.971 143.68 717.463 144.893 710.572 144.893C703.171 144.893 696.217 143.489 689.709 140.682C683.329 137.874 677.715 134.11 672.866 129.389C668.145 124.54 664.38 118.925 661.573 112.545C658.766 106.038 657.362 99.1471 657.362 91.8737C657.362 84.4728 658.766 77.5823 661.573 71.2021C664.38 64.6944 668.145 59.0799 672.866 54.3586C677.715 49.5097 683.329 45.6817 689.709 42.8744C696.217 40.0672 703.171 38.6635 710.572 38.6635ZM676.694 91.8737C676.694 96.9778 677.587 101.763 679.374 106.229C681.288 110.695 683.776 114.587 686.838 117.905C690.028 121.222 693.729 123.902 697.94 125.944C702.278 127.858 706.808 128.815 711.529 128.815C716.378 128.815 720.908 127.858 725.119 125.944C729.33 123.902 733.03 121.222 736.22 117.905C739.41 114.587 741.899 110.695 743.685 106.229C745.472 101.763 746.365 96.9778 746.365 91.8737C746.365 86.7696 745.472 81.9845 743.685 77.5185C741.899 72.9248 739.41 68.9691 736.22 65.6514C733.03 62.3338 729.33 59.7179 725.119 57.8039C720.908 55.7622 716.378 54.7414 711.529 54.7414C706.808 54.7414 702.278 55.7622 697.94 57.8039C693.729 59.7179 690.028 62.3338 686.838 65.6514C683.776 68.9691 681.288 72.9248 679.374 77.5185C677.587 81.9845 676.694 86.7696 676.694 91.8737Z"/><path d="M786.835 2.48825H806.166V53.0188C811.015 48.5527 816.502 45.0436 822.627 42.4916C828.752 39.9396 835.324 38.6635 842.342 38.6635C849.615 38.6635 856.506 40.0672 863.013 42.8744C869.521 45.6817 875.136 49.5097 879.857 54.3586C884.706 59.0799 888.534 64.6944 891.341 71.2021C894.148 77.5823 895.552 84.4728 895.552 91.8737C895.552 99.1471 894.148 106.038 891.341 112.545C888.534 118.925 884.706 124.54 879.857 129.389C875.136 134.11 869.521 137.874 863.013 140.682C856.506 143.489 849.615 144.893 842.342 144.893C835.324 144.893 828.752 143.616 822.627 141.064C816.502 138.512 811.015 135.003 806.166 130.537V142.596H786.835V2.48825ZM806.549 91.8737C806.549 96.9778 807.442 101.763 809.229 106.229C811.015 110.695 813.504 114.587 816.694 117.905C819.884 121.222 823.584 123.902 827.795 125.944C832.006 127.858 836.536 128.815 841.385 128.815C846.234 128.815 850.763 127.858 854.974 125.944C859.185 123.902 862.822 121.222 865.884 117.905C869.074 114.587 871.563 110.695 873.349 106.229C875.263 101.763 876.22 96.9778 876.22 91.8737C876.22 86.7696 875.263 81.9845 873.349 77.5185C871.563 72.9248 869.074 68.9691 865.884 65.6514C862.822 62.3338 859.185 59.7179 854.974 57.8039C850.763 55.7622 846.234 54.7414 841.385 54.7414C836.536 54.7414 832.006 55.7622 827.795 57.8039C823.584 59.7179 819.884 62.3338 816.694 65.6514C813.504 68.9691 811.015 72.9248 809.229 77.5185C807.442 81.9845 806.549 86.7696 806.549 91.8737Z"/><path d="M917.638 119.053C918.914 120.201 920.318 121.35 921.849 122.498C923.38 123.519 925.23 124.412 927.4 125.178C929.696 125.944 932.312 126.582 935.247 127.092C938.31 127.602 941.883 127.858 945.966 127.858C949.283 127.858 952.282 127.475 954.962 126.709C957.769 125.816 960.13 124.731 962.044 123.455C964.085 122.052 965.617 120.584 966.637 119.053C967.786 117.394 968.36 115.735 968.36 114.077C968.36 113.183 968.232 112.226 967.977 111.205C967.722 110.057 966.829 108.845 965.298 107.569C963.766 106.293 961.342 105.017 958.024 103.741C954.834 102.465 950.24 101.252 944.243 100.104C941.564 99.4661 938.118 98.6366 933.907 97.6158C929.824 96.4674 925.805 94.8086 921.849 92.6393C918.021 90.3425 914.703 87.4076 911.896 83.8348C909.089 80.1343 907.685 75.4768 907.685 69.8623C907.685 65.3962 908.642 61.313 910.556 57.6125C912.598 53.7844 915.341 50.4667 918.787 47.6595C922.232 44.7246 926.251 42.4278 930.845 40.769C935.566 39.1101 940.606 38.2807 945.966 38.2807C948.007 38.2807 950.368 38.4083 953.048 38.6635C955.855 38.9187 958.79 39.4291 961.852 40.1948C965.042 40.9604 968.36 42.1088 971.805 43.64C975.251 45.1712 978.632 47.2767 981.95 49.9563L971.231 63.546C968.934 61.7596 966.637 60.3559 964.341 59.3351C962.044 58.3143 959.747 57.5487 957.45 57.0383C955.281 56.4003 953.175 56.0175 951.134 55.8899C949.22 55.6346 947.497 55.507 945.966 55.507C939.458 55.6346 934.29 57.2297 930.462 60.2921C926.762 63.227 924.911 66.4171 924.911 69.8623C924.911 70.5003 925.039 71.3297 925.294 72.3506C925.549 73.3714 926.379 74.5198 927.782 75.7958C929.186 76.9442 931.419 78.2203 934.482 79.6239C937.672 80.8999 942.138 82.1121 947.88 83.2606C950.942 83.8986 954.579 84.7918 958.79 85.9402C963.128 86.961 967.275 88.6199 971.231 90.9167C975.187 93.2135 978.568 96.2122 981.375 99.9127C984.183 103.613 985.586 108.334 985.586 114.077C985.586 118.415 984.566 122.498 982.524 126.326C980.482 130.027 977.675 133.281 974.102 136.088C970.529 138.895 966.318 141.064 961.469 142.596C956.748 144.255 951.58 145.084 945.966 145.084C937.161 145.084 929.505 143.999 922.997 141.83C916.617 139.661 910.939 136.279 905.962 131.686L917.638 119.053Z"/></g></svg>
+    </a>
+    <a class="btn" href="/#book">Book a call</a>
+  </div>
+</header>
+
+<main id="main">
+  <article class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/">Orvin Labs</a> &rarr; AI crawler reference</nav>
+
+    <h1>AI crawler reference: every bot that matters, and what each one actually does</h1>
+
+    <p class="standfirst">There are four kinds of AI user agent and only two of them fetch pages. Confusing them is the most common reason a site is invisible to AI assistants while looking perfectly healthy in Google Search Console.</p>
+
+    <p class="byline">By <strong>Harsh Vardhan Goel</strong>, founder, Orvin Labs. Based at IIT Delhi. <a href="https://www.linkedin.com/in/harsh-vardhan-goel-856446290" rel="author me noopener" target="_blank">LinkedIn</a></p>
+    <p class="meta">Last verified against operator documentation: 3 October 2026. Every token below is sourced from the operator's own docs, linked at the end.</p>
+
+    <h2>The four kinds of AI user agent</h2>
+
+    <p>Treating all AI bots as one category is what produces the wrong robots.txt. They do different jobs, and only one category determines whether an AI assistant can cite you in a live answer.</p>
+
+    <ol>
+      <li><strong>Retrieval crawlers.</strong> These build the index an assistant searches when answering a question. <code>OAI-SearchBot</code>, <code>PerplexityBot</code>, <code>Claude-SearchBot</code> and <code>Googlebot</code> are in this group. <strong>These are the ones that decide whether you can be cited.</strong></li>
+      <li><strong>Training crawlers.</strong> These collect content that may be used to train future models. <code>GPTBot</code>, <code>ClaudeBot</code> and <code>CCBot</code> are here. Blocking them affects future model weights, not today's answers.</li>
+      <li><strong>User-triggered fetchers.</strong> These fetch a page because a person asked the assistant to look at it. <code>ChatGPT-User</code>, <code>Claude-User</code> and <code>Perplexity-User</code> are here. They do not crawl on their own schedule, and they do not reliably obey robots.txt.</li>
+      <li><strong>Control tokens.</strong> <code>Google-Extended</code> and <code>Applebot-Extended</code> are not crawlers at all. They have no user agent and fetch nothing. They are opt-out switches governing how content that was already crawled may be used.</li>
+    </ol>
+
+    <h2>The tokens, by operator</h2>
+
+    <div class="table-scroll">
+      <table>
+        <caption>Verified against each operator's published documentation, 3 October 2026.</caption>
+        <thead>
+          <tr><th scope="col">Operator</th><th scope="col">robots.txt token</th><th scope="col">Kind</th><th scope="col">What it does</th><th scope="col">Obeys robots.txt</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>OpenAI</td><td><code>OAI-SearchBot</code></td><td>Retrieval</td><td>Surfaces sites in ChatGPT's search features</td><td class="yes">Yes</td></tr>
+          <tr><td>OpenAI</td><td><code>GPTBot</code></td><td>Training</td><td>Collects content that may train foundation models</td><td class="yes">Yes</td></tr>
+          <tr><td>OpenAI</td><td><code>ChatGPT-User</code></td><td>User-triggered</td><td>Fetches a page on a user's direct request</td><td class="no">May not apply</td></tr>
+          <tr><td>OpenAI</td><td><code>OAI-AdsBot</code></td><td>Other</td><td>Validates the safety of ad landing pages; not used for training</td><td class="yes">Yes</td></tr>
+          <tr><td>Anthropic</td><td><code>Claude-SearchBot</code></td><td>Retrieval</td><td>Navigates the web to improve search result quality</td><td class="yes">Yes</td></tr>
+          <tr><td>Anthropic</td><td><code>ClaudeBot</code></td><td>Training</td><td>Collects web content that may contribute to training</td><td class="yes">Yes</td></tr>
+          <tr><td>Anthropic</td><td><code>Claude-User</code></td><td>User-triggered</td><td>Accesses sites when a person asks Claude a question</td><td class="yes">Yes</td></tr>
+          <tr><td>Perplexity</td><td><code>PerplexityBot</code></td><td>Retrieval</td><td>Surfaces and links sites in Perplexity results; does not train models</td><td class="yes">Yes</td></tr>
+          <tr><td>Perplexity</td><td><code>Perplexity-User</code></td><td>User-triggered</td><td>Fetches a page to answer a user's question and link it</td><td class="no">Generally ignores</td></tr>
+          <tr><td>Google</td><td><code>Googlebot</code></td><td>Retrieval</td><td>Builds the search index that AI Overviews are drawn from</td><td class="yes">Yes</td></tr>
+          <tr><td>Google</td><td><code>Google-Extended</code></td><td>Control token</td><td>Governs Gemini training and grounding use. No crawling. No ranking effect.</td><td>n/a</td></tr>
+          <tr><td>Google</td><td><code>Google-CloudVertexBot</code></td><td>Other</td><td>Crawls for Vertex AI agents built by site owners; no Search impact</td><td class="yes">Yes</td></tr>
+          <tr><td>Apple</td><td><code>Applebot</code></td><td>Retrieval</td><td>Crawls for Spotlight, Siri and Safari, and for Apple Intelligence training</td><td class="yes">Yes</td></tr>
+          <tr><td>Apple</td><td><code>Applebot-Extended</code></td><td>Control token</td><td>Governs training use only. Does not affect Siri or Spotlight discoverability.</td><td>n/a</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Two Anthropic tokens still circulate in older robots.txt templates: <code>Claude-Web</code> and <code>anthropic-ai</code>. Neither appears in Anthropic's current documentation. Leaving an <code>Allow</code> for them costs nothing, but a robots.txt built only from them is missing every crawler Anthropic actually runs today.</p>
+
+    <h2>The two expensive mistakes</h2>
+
+    <div class="callout">
+      <h3>1. Blocking Google-Extended and expecting to disappear from AI Overviews</h3>
+      <p>It does not work that way, in either direction. Google states plainly that Google-Extended does not impact inclusion in Google Search and is not used as a ranking signal. It has no separate HTTP user agent; crawling is done with existing Google user agents. AI Overviews are assembled from Google's search index, which Googlebot populates.</p>
+      <p>The same logic applies to Apple. Disallowing <code>Applebot-Extended</code> only withholds content from Apple's foundation-model training. Apple documents that pages disallowing it remain discoverable through Spotlight, Siri and Safari.</p>
+    </div>
+
+    <div class="callout">
+      <h3>2. Allowing the training crawler and blocking the retrieval crawler</h3>
+      <p>This is the common accident, and it is backwards. A site that allows <code>GPTBot</code> but blocks <code>OAI-SearchBot</code> has permitted its content into model training while removing itself from the index ChatGPT actually searches when answering a question. The visible symptom is being absent from answers while appearing to have an open robots.txt.</p>
+    </div>
+
+    <h2>How to check your own site</h2>
+
+    <p>robots.txt tells you what you intended. These commands tell you what actually happens. Run each one and confirm you get <code>200</code>.</p>
+
+    <pre><code>curl -s -o /dev/null -w "%{http_code}\n" -A "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; GPTBot/1.4; +https://openai.com/gptbot" https://example.com
+
+curl -s -o /dev/null -w "%{http_code}\n" -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; compatible; OAI-SearchBot/1.4; +https://openai.com/searchbot" https://example.com
+
+curl -s -o /dev/null -w "%{http_code}\n" -A "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)" https://example.com
+
+curl -s -o /dev/null -w "%{http_code}\n" -A "ClaudeBot/1.0" https://example.com</code></pre>
+
+    <p>A <code>403</code> or <code>503</code> here, on a site whose robots.txt allows everything, means the block is above robots.txt. That is the normal case.</p>
+
+    <h2>robots.txt is not where most blocks happen</h2>
+
+    <p>robots.txt is a request, not a gate. It is read by the crawler after the crawler has already been allowed to connect. Most real-world blocking happens earlier, in infrastructure that was never configured with AI crawlers in mind.</p>
+
+    <ul>
+      <li><strong>CDN bot management.</strong> Managed rule sets classify unfamiliar user agents as bots and challenge or reject them. Several CDNs ship AI-crawler blocking that is on by default or one toggle away.</li>
+      <li><strong>WAF rules.</strong> Rules written to stop scrapers catch retrieval crawlers, because they look identical at the request level.</li>
+      <li><strong>Rate limiting.</strong> A crawler fetching many pages quickly trips thresholds tuned for human traffic.</li>
+      <li><strong>JavaScript challenges.</strong> An interstitial that a browser solves silently returns a challenge page to a crawler, which then indexes the challenge page.</li>
+      <li><strong>Country blocks.</strong> Crawler egress IPs sit in a small number of regions. A geo rule can remove you entirely.</li>
+    </ul>
+
+    <p>Each operator publishes the IP ranges its crawlers use, which is how you verify a request is genuine rather than a user agent someone copied. OpenAI publishes <code>gptbot.json</code>, <code>searchbot.json</code> and <code>chatgpt-user.json</code>; Anthropic publishes a single bots list; Perplexity publishes one file per crawler. Verifying by IP matters because the user-agent string is trivially forged, and a bot-management rule that trusts the string alone is both blocking real crawlers and admitting fake ones.</p>
+
+    <h2>Questions</h2>
+
+    <h3>Does blocking Google-Extended remove me from AI Overviews?</h3>
+    <p>No. Google-Extended is a control token, not a crawler. It has no separate user agent and does no fetching of its own. Google documents that it does not affect inclusion in Google Search and is not a ranking signal. It governs whether already-crawled content may be used to train Gemini models and to ground Gemini and Vertex AI. AI Overviews are built on Google's search index, which Googlebot populates, so blocking Googlebot is what removes you from AI Overviews.</p>
+
+    <h3>Which AI crawlers actually decide whether I get cited?</h3>
+    <p>The retrieval crawlers, not the training crawlers. OAI-SearchBot surfaces sites in ChatGPT search, PerplexityBot surfaces and links sites in Perplexity, and Claude-SearchBot supports Claude's search results. Blocking a training crawler such as GPTBot or ClaudeBot keeps your content out of future model training but does not by itself stop you being cited in a live answer. Blocking a retrieval crawler does.</p>
+
+    <h3>Do user-triggered AI fetchers obey robots.txt?</h3>
+    <p>Not reliably. OpenAI documents that ChatGPT-User may not apply robots.txt rules because it acts on a direct user request rather than autonomous crawling. Perplexity documents that Perplexity-User generally ignores robots.txt for the same reason. Treat robots.txt as a signal to autonomous crawlers, not as an access control.</p>
+
+    <h3>Why does a site pass robots.txt checks but still get blocked?</h3>
+    <p>Because most blocking happens above robots.txt, at the CDN or WAF layer. Bot-management rules, rate limits, JavaScript challenges and country blocks reject the request before robots.txt is ever consulted. A robots.txt file that allows every AI crawler tells you nothing about whether those crawlers receive a 200 response.</p>
+
+    <h2>Sources</h2>
+    <ul class="sources">
+      <li><a href="https://developers.openai.com/api/docs/bots" rel="nofollow noopener">OpenAI â€” Overview of OpenAI crawlers</a></li>
+      <li><a href="https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" rel="nofollow noopener">Anthropic â€” Does Anthropic crawl data from the web?</a></li>
+      <li><a href="https://docs.perplexity.ai/guides/bots" rel="nofollow noopener">Perplexity â€” PerplexityBot and Perplexity-User</a></li>
+      <li><a href="https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers" rel="nofollow noopener">Google â€” Common crawlers, including Google-Extended</a></li>
+      <li><a href="https://support.apple.com/en-us/119829" rel="nofollow noopener">Apple â€” About Applebot and Applebot-Extended</a></li>
+    </ul>
+
+    <h2>Related</h2>
+    <p><a href="/ai-traffic-in-ga4/">Why AI traffic lands in your Direct bucket, and how to fix it in GA4</a>. Once AI crawlers can reach you, the next question is whether you can see the traffic they send. GA4 files it under Referral and Direct by default.</p>
+
+    <div class="endcta">
+      <h2 style="margin-top:0">Check your own crawler access</h2>
+      <p>The AI Visibility Audit includes a crawler access report across every bot listed above, run against your live site rather than your robots.txt. $750, five to seven business days.</p>
+      <p><a class="btn" style="margin-left:0" href="/#book">Book a 20 minute call</a></p>
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p><strong style="color:var(--ink)">Orvin Labs</strong></p>
+    <p><a href="mailto:harsh@orvinlabs.com">harsh@orvinlabs.com</a></p>
+    <p>AI visibility for B2B SaaS.</p>
+  </div>
+</footer>
+</body>
+</html>

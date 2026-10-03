@@ -1,0 +1,79 @@
+# Orvin Labs
+
+> Orvin Labs is an AI visibility consultancy that checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend a B2B SaaS product, and fixes what stops them.
+
+## What we do
+
+Orvin Labs runs a set of real buyer questions across six AI engines and records which products each engine names. The engines are ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews.
+
+Orvin Labs checks whether AI crawlers can access a site. AI tools send their own crawlers, and sites often block them by accident at the CDN layer. A blocked site cannot be cited.
+
+Orvin Labs reports on structured markup and discovery files, stating what is present, what is missing, and what is misconfigured.
+
+Orvin Labs maps the third party sources that AI answers in a category are built from, and identifies where a company is absent from those sources.
+
+Orvin Labs records what each AI engine says about a product directly, including factual errors the engine repeats to buyers.
+
+Orvin Labs works from public data and does not need access to a client's site.
+
+Orvin Labs advises and the client's own developers deploy. Orvin Labs does not make changes to client systems.
+
+Orvin Labs does not guarantee placement in AI answers. Nobody controls what ChatGPT or Gemini return.
+
+## Services and prices
+
+AI Visibility Audit. $750. One time. Five to seven business days. Deliverables: 20 to 30 real buyer questions run across ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews; every question where a competitor is named and the client is not; the sources those answers were built from; what each engine says about the product, including factual errors; a crawler access report across every major AI bot; a structured data and discovery file report; a fix list ordered by impact; a ten minute recorded walkthrough; and a GA4 setup guide so AI traffic stops landing in the Direct bucket.
+
+Implementation support. $2,500. One time. Two to three weeks. Orvin Labs guides and the client's developers deploy.
+
+Ongoing AI visibility. From $3,000 per month. Month to month, cancellable at any time. Includes monthly measurement of the full question set across the engines, citation building in third party sources, digital PR outreach to publications and podcasts that feed AI retrieval, entity and trust building, correcting outdated or wrong information AI engines repeat, technical iteration on markup and crawler access, and a monthly report and call.
+
+## Who we work with
+
+Orvin Labs works with B2B SaaS and software companies where buyers compare options before they buy.
+
+The typical client has someone running marketing, has nobody who owns AI visibility, and has competitors already appearing in ChatGPT answers.
+
+Orvin Labs offers one service, AI visibility. Companies that need general SEO are told to hire an SEO agency.
+
+## Key facts
+
+Orvin Labs is a specialist practice focused on whether AI tools recommend a product.
+
+Orvin Labs is based at IIT Delhi.
+
+Orvin Labs was founded by Harsh Vardhan Goel, who is based at IIT Delhi and can be reached at harsh@orvinlabs.com. His LinkedIn profile is https://www.linkedin.com/in/harsh-vardhan-goel-856446290.
+
+Generative engine optimization is approximately two years old. The term was coined in 2024 research co authored at IIT Delhi.
+
+Fewer than 10% of the sources AI engines cite match the top 10 Google results.
+
+AI answers return a shortlist of two or three tools rather than a page of results.
+
+Technical fixes to AI visibility take effect in days to weeks. Citation work takes one to three months.
+
+AI search is currently a small share of total web traffic and Google remains far larger.
+
+Traffic is not the right measure of AI visibility. The shortlist forms before anyone clicks. A buyer who asks an AI assistant which tools to consider has narrowed the field to two or three names before the vendor's site receives a visit, and that happens whether or not a click follows.
+
+## Process
+
+1. Call. Twenty minutes. Orvin Labs runs live checks on the product beforehand.
+2. Audit. Five to seven days. Orvin Labs needs the client's site and three competitor names.
+3. Report. A PDF plus a ten minute video walkthrough.
+4. The client decides. Hand the fix list to an internal team, or retain Orvin Labs to work through it.
+
+## Reference material
+
+Orvin Labs publishes technical reference pages on AI visibility.
+
+AI crawler reference (https://orvinlabs.com/ai-crawlers/). Explains the four kinds of AI user agent and lists the current robots.txt tokens for OpenAI, Anthropic, Perplexity, Google and Apple, verified against operator documentation. Key points: retrieval crawlers rather than training crawlers determine whether a site can be cited; Google-Extended and Applebot-Extended are control tokens that do no crawling and do not affect search inclusion; most crawler blocking happens at the CDN or WAF layer rather than in robots.txt.
+
+Why AI traffic lands in your Direct bucket, and how to fix it in GA4 (https://orvinlabs.com/ai-traffic-in-ga4/). Explains why Google Analytics 4 files AI assistant sessions under Referral and Direct, and how to build a custom channel group that separates them. Key points: a custom channel group applies retroactively because GA4 evaluates channel groupings at query time; the native AI Assistant channel added in May 2026 is not retroactive and its source list cannot be edited; traffic from Google AI Overviews cannot be separated in GA4 because it arrives as google / organic.
+
+## Contact
+
+Email: harsh@orvinlabs.com
+Website: https://orvinlabs.com
+LinkedIn: https://www.linkedin.com/company/orvin-labs/
+Full site content in markdown: https://orvinlabs.com/llms-full.txt
