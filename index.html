@@ -7,7 +7,7 @@
 <meta name="description" content="Orvin Labs checks whether ChatGPT, Perplexity, Gemini, Claude, Copilot and Google AI Overviews recommend your B2B SaaS product, and what's stopping them.">
 <link rel="canonical" href="https://orvinlabs.com">
 <meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#0B0A09" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -39,18 +39,18 @@
   --accent-ink:#F65E1D;     /* accent used as text â€” 9.3:1 on --bg */
   --accent-strong:#F65E1D;  /* button fill â€” white text 5.4:1 */
   --accent-hover:#FF7437;
-  --accent-on:#0B0A09;
+  --accent-on:#000000;
   --glow:rgba(246,94,29,.15);
   --glow-soft:rgba(246,94,29,.07);
 
-  --bg:#0B0A09;
-  --surface:#141210;
-  --surface-2:#1B1816;
-  --line:#262220;
-  --line-2:#332E2A;
-  --ink:#FAF8F6;            /* 18:1 */
-  --ink-2:#B5ADA6;          /* 9.1:1 */
-  --ink-3:#8A827B;          /* 5.1:1 */
+  --bg:#000000;
+  --surface:#0A0A0A;
+  --surface-2:#121212;
+  --line:#232323;
+  --line-2:#2E2E2E;
+  --ink:#EDF2F5;            /* 18:1 */
+  --ink-2:#ADB5BD;          /* 9.1:1 */
+  --ink-3:#868E96;          /* 5.1:1 */
 
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
   --shadow:0 24px 70px -20px rgba(0,0,0,.75);
@@ -110,8 +110,8 @@ body{
 }
 @media (min-width:768px){ body{font-size:18px} }
 
-h1,h2,h3{margin:0;color:var(--ink);font-weight:650;letter-spacing:-0.018em;line-height:1.15}
-h1{font-size:clamp(2rem,3.9vw,3rem);line-height:1.08;letter-spacing:-0.028em;font-weight:700}
+h1,h2,h3{margin:0;color:var(--ink);font-weight:550;letter-spacing:-0.018em;line-height:1.15}
+h1{font-size:clamp(2rem,3.9vw,3rem);line-height:1.08;letter-spacing:-0.024em;font-weight:500}
 h2{font-size:clamp(1.75rem,3.2vw,2.5rem);letter-spacing:-0.026em}
 h3{font-size:1.0625rem;letter-spacing:-0.008em;font-weight:650}
 p{margin:0 0 var(--s2)}
@@ -188,6 +188,13 @@ main p a:not(.btn):hover, main .check li a:hover{text-decoration-thickness:2px}
    SECTION SHELL + LEFT RAIL
    ============================================================ */
 section{padding:clamp(5rem,10vw,8rem) 0;position:relative}
+/* subtle vertical wash, Profound-style, so sections dissolve into the black */
+section::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:140px;z-index:0;pointer-events:none;
+  background:linear-gradient(to bottom, transparent, color-mix(in srgb, var(--surface) 55%, transparent));
+}
+@supports not (background:color-mix(in srgb,red,blue)){ section::after{display:none} }
+section > *{position:relative;z-index:1}
 section + section{border-top:1px solid var(--line)}
 
 .rail{display:grid;gap:var(--s5)}
@@ -236,9 +243,9 @@ section + section{border-top:1px solid var(--line)}
   mask-image:radial-gradient(60% 55% at 50% 30%, #000, transparent 75%);
 }
 .hero .wrap{position:relative;z-index:1}
-.hero-grid{display:grid;gap:var(--s7);align-items:center}
+.hero-grid{display:grid;gap:var(--s7);align-items:center;text-align:center;justify-items:center}
 @media (min-width:1040px){
-  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:var(--s7)}
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:var(--s6)}
 }
 .kicker{
   display:inline-flex;align-items:center;gap:9px;
@@ -248,11 +255,11 @@ section + section{border-top:1px solid var(--line)}
   padding:7px 14px;border-radius:999px;margin:0 0 var(--s4);
 }
 .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
-.hero h1{max-width:21ch}
-.hero .sub{margin-top:var(--s4);font-size:1.0625rem;color:var(--ink-2);max-width:40rem}
+.hero h1{max-width:20ch;margin-inline:auto}
+.hero .sub{margin-top:var(--s4);font-size:1.0625rem;color:var(--ink-2);max-width:38rem;margin-inline:auto}
 @media (min-width:768px){ .hero .sub{font-size:1.25rem;line-height:1.55} }
-.hero-actions{margin-top:var(--s5);display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center}
-.hero .note{margin-top:var(--s3);color:var(--ink-3);font-size:.9375rem;max-width:34rem}
+.hero-actions{margin-top:var(--s5);display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center;justify-content:center}
+.hero .note{margin-top:var(--s3);color:var(--ink-3);font-size:.9375rem;max-width:34rem;margin-inline:auto}
 
 /* orbit panel */
 .orbit-panel{
@@ -261,12 +268,26 @@ section + section{border-top:1px solid var(--line)}
   padding:var(--s5);
   display:none;
 }
-@media (min-width:1040px){ .orbit-panel{display:block} }
+@media (min-width:860px){ .orbit-panel{display:block;width:100%;max-width:560px} }
 .orbit{display:block;width:100%;height:auto;color:var(--accent)}
 /* ============================================================
    PROBLEM â€” three columns
    ============================================================ */
 .cols{display:grid;gap:var(--s5)}
+
+/* Butted grid cells: 1px gap over a line-coloured container reads as shared hairlines */
+.cells{
+  display:grid;gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;
+}
+.cells > *{background:var(--bg);padding:var(--s4);margin:0}
+.cells > *:hover{background:var(--surface)}
+.cells h3{margin:0 0 10px}
+.cells p{color:var(--ink-2);font-size:1rem;margin:0}
+@media (min-width:680px){ .cells-2{grid-template-columns:repeat(2,1fr)} }
+@media (min-width:860px){ .cells-3{grid-template-columns:repeat(3,1fr)} }
+@media (min-width:760px){ .cells-r{grid-template-columns:repeat(2,1fr)} }
+@media (min-width:1100px){ .cells-r{grid-template-columns:repeat(3,1fr)} }
 @media (min-width:860px){ .cols-3{grid-template-columns:repeat(3,1fr);gap:var(--s5)} }
 @media (min-width:680px){ .cols-2{grid-template-columns:repeat(2,1fr);gap:var(--s5)} }
 .col-top{padding-top:var(--s3);border-top:1px solid var(--line);position:relative}
@@ -858,16 +879,16 @@ section + section{border-top:1px solid var(--line)}
       <div aria-hidden="true"></div>
       <div class="rail-body">
         <h2 id="problem-title" class="reveal">The problem</h2>
-        <div class="cols cols-3 reveal" style="margin-top:var(--s6)">
-          <article class="col-top">
+        <div class="cells cells-3 reveal" style="margin-top:var(--s6)">
+          <article>
             <h3>Buyers shortlist with AI now</h3>
             <p>Most B2B buyers now use generative AI somewhere in their buying process, and AI answers shape which vendors make the shortlist.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>Google rankings don't carry over</h3>
             <p>Fewer than 10% of the sources AI cites match the top 10 Google results. These systems read different signals.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>AI names two or three tools</h3>
             <p>The answer is a shortlist, not a results page. You're in it or you're absent.</p>
           </article>
@@ -901,28 +922,28 @@ section + section{border-top:1px solid var(--line)}
       <p class="rail-label">Outcomes</p>
       <div class="rail-body">
         <h2 id="changes-title" class="reveal">What changes</h2>
-        <div class="cols cols-3 reveal" style="margin-top:var(--s6)">
-          <article class="col-top">
+        <div class="cells cells-3 reveal" style="margin-top:var(--s6)">
+          <article>
             <h3>You stop guessing</h3>
             <p>Most teams have never checked. Afterwards you know which questions name you, which name a competitor, and on which engines.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>You see the competitor, not a score</h3>
             <p>Every question where someone else is recommended and you aren't, with the sources that answer was built from.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>You find what AI gets wrong about you</h3>
             <p>Outdated pricing, features you discontinued, positioning that was never yours. Those answers are reaching buyers now.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>You find out if you're blocked</h3>
             <p>A blocked site can't be cited at all. It is usually a CDN rule nobody set on purpose, and it is a same-day fix.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>Your analytics stop hiding the channel</h3>
             <p>AI traffic lands in your Direct bucket by default. Separated out, you can see volume, conversion, and which engine sent it.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>You get a fix list, not a dependency</h3>
             <p>Ordered by impact and written for your developers. Plenty of teams take it from there themselves.</p>
           </article>
@@ -938,8 +959,8 @@ section + section{border-top:1px solid var(--line)}
       <p class="rail-label">What we look at</p>
       <div class="rail-body">
         <h2 id="checks-title" class="reveal">What we check</h2>
-        <div class="cols cols-2 reveal" style="margin-top:var(--s6)">
-          <article class="card">
+        <div class="cells cells-2 reveal" style="margin-top:var(--s6)">
+          <article>
             <svg class="glyph" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <rect x="3.5" y="3.5" width="21" height="21" rx="5"/>
               <path d="M8.5 14h10M15 10.5l3.5 3.5-3.5 3.5"/>
@@ -947,7 +968,7 @@ section + section{border-top:1px solid var(--line)}
             <h3>AI crawler access</h3>
             <p>AI tools send their own crawlers. Sites often block them by accident, usually at the CDN layer, and a blocked site can't be cited at all. We check <a href="/ai-crawlers/">every major AI crawler</a>.</p>
           </article>
-          <article class="card">
+          <article>
             <svg class="glyph" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M12 4.5c-3 0-3 2.2-3 4.4s0 3.3-3 3.3c3 0 3 1.1 3 3.3s0 4.4 3 4.4"/>
               <path d="M16 4.5c3 0 3 2.2 3 4.4s0 3.3 3 3.3c-3 0-3 1.1-3 3.3s0 4.4-3 4.4"/>
@@ -956,7 +977,7 @@ section + section{border-top:1px solid var(--line)}
             <h3>Machine readable data</h3>
             <p>AI reads structured markup and discovery files before it reads your copy. We report what's present, what's missing, and what's misconfigured.</p>
           </article>
-          <article class="card">
+          <article>
             <svg class="glyph" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <circle cx="6" cy="7" r="2.5"/>
               <circle cx="6" cy="21" r="2.5"/>
@@ -966,7 +987,7 @@ section + section{border-top:1px solid var(--line)}
             <h3>Citation sources</h3>
             <p>AI answers are built from a specific set of third party sources, and they differ by category. We map which ones drive answers in yours and where you're absent from them.</p>
           </article>
-          <article class="card">
+          <article>
             <svg class="glyph" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M3.5 7a3 3 0 013-3h15a3 3 0 013 3v9a3 3 0 01-3 3h-10l-5 4.5V19h-0a3 3 0 01-3-3z"/>
               <path d="M9 9.5h10M9 13.5h6"/>
@@ -1053,32 +1074,32 @@ section + section{border-top:1px solid var(--line)}
           </div>
           <p class="sect-intro" style="margin:0">The audit tells you where you stand. The retainer is the work that moves it.</p>
         </div>
-        <div class="retain-grid reveal">
-          <article class="card">
+        <div class="cells cells-r reveal">
+          <article>
             <h3>Monthly measurement</h3>
             <p>Your full question set re-run across the engines. We track where you've gained, where you've slipped, and which competitors moved against you. You see the movement, not a score.</p>
           </article>
-          <article class="card">
+          <article>
             <h3>Citation building</h3>
             <p>This is the bulk of the work. AI systems recommend what independent sources say about you, so we build presence in the third party sources your category's answers are actually constructed from. Earned mentions, review platform presence, comparison and listicle placement, and participation in the communities AI pulls from.</p>
           </article>
-          <article class="card">
+          <article>
             <h3>Digital PR</h3>
             <p>Targeted outreach to publications, newsletters, podcasts and industry sites that feed AI retrieval. Each placement builds a signal that compounds.</p>
           </article>
-          <article class="card">
+          <article>
             <h3>Entity and trust building</h3>
             <p>AI systems need to understand what your company is before they'll recommend it. We work on your entity footprint across the reference layer AI treats as authoritative, and keep your details consistent everywhere they appear.</p>
           </article>
-          <article class="card">
+          <article>
             <h3>Correcting the record</h3>
             <p>AI engines repeat outdated pricing, wrong positioning and features you discontinued. We find those errors and work the sources they come from.</p>
           </article>
-          <article class="card">
+          <article>
             <h3>Technical iteration</h3>
             <p>Markup, discovery files and crawler access reviewed as your site changes. New pages checked before they ship.</p>
           </article>
-          <article class="card">
+          <article>
             <h3>Monthly report and call</h3>
             <p>What moved, what we shipped, what's next, measured against the competitors named in your audit.</p>
           </article>
@@ -1118,20 +1139,20 @@ section + section{border-top:1px solid var(--line)}
       <p class="rail-label">How we work</p>
       <div class="rail-body">
         <h2 id="work-title" class="reveal">How we work</h2>
-        <div class="cols cols-2 reveal" style="margin-top:var(--s6)">
-          <article class="col-top">
+        <div class="cells cells-2 reveal" style="margin-top:var(--s6)">
+          <article>
             <h3>One service</h3>
             <p>AI visibility. If your site needs SEO, you want an SEO agency, and we'll tell you that.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>Your team keeps the keys</h3>
             <p>We advise, your developers deploy. Nothing we do can break anything.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>We brief, you publish</h3>
             <p>Where content needs to change, we tell your team exactly what to add and where. Your voice stays yours.</p>
           </article>
-          <article class="col-top">
+          <article>
             <h3>We describe what's achievable</h3>
             <p>Nobody controls what ChatGPT or Gemini return. Any agency promising guaranteed placement is promising something that isn't theirs to give. We'll tell you what we can move and what we can't.</p>
           </article>
