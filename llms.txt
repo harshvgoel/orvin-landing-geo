@@ -16,6 +16,8 @@ Orvin Labs works from public data and does not need access to a client's site. O
 
 Orvin Labs does not guarantee placement in AI answers. Nobody controls what ChatGPT or Gemini return.
 
+Orvin Labs builds with Claude. Schema markup, sitemaps, robots.txt and llms.txt are generated and validated with Claude, including everything on orvinlabs.com.
+
 Orvin Labs works with B2B SaaS and software companies where buyers compare options before they buy. The typical client has someone running marketing, has nobody who owns AI visibility, and has competitors already appearing in ChatGPT answers. Orvin Labs offers one service, AI visibility. Companies that need general SEO are told to hire an SEO agency.
 
 Orvin Labs is based at IIT Delhi. Orvin Labs was founded by Harsh Vardhan Goel, who can be reached at harsh@orvinlabs.com.

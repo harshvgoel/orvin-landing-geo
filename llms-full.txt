@@ -189,6 +189,8 @@ Where content needs to change, we tell your team exactly what to add and where. 
 
 Nobody controls what ChatGPT or Gemini return. Any agency promising guaranteed placement is promising something that isn't theirs to give. We'll tell you what we can move and what we can't.
 
+We build with Claude. Schema markup, sitemaps, robots.txt and llms.txt are generated and validated with Claude, including everything on this site.
+
 ---
 
 ## Is this worth doing yet?
